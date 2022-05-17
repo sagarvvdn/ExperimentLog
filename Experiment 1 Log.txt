@@ -1,0 +1,1267 @@
+-Boot 2021.01 (Jun 01 2021 - 11:54:06 +0000)
+
+Board: Xilinx ZynqMP
+DRAM:  2 GiB
+PMUFW:  v1.1
+EL Level:       EL2
+Chip ID:        zu9eg
+NAND:  ERROR:arasan_nand_reset timedout
+ERROR:arasan_nand_cmd_function:command:0xff
+ERROR:arasan_nand_read_buf timedout:Buff RDY
+ERROR:arasan_nand_read_buf timedout:Xfer CMPLT
+2048 MiB
+MMC:
+Loading Environment from SPIFlash... SF: Detected mt25qu02g with page size 256 Bytes, erase size 64 KiB, total 256 MiB
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Bootmode: QSPI_MODE
+Reset reason:   EXTERNAL
+Net:
+ZYNQ GEM: ff0d0000, mdio bus ff0d0000, phyaddr -1, interface rgmii-id
+ZYNQ GEM: requesting PHY reset gpio 70
+
+Warning: ethernet@ff0d0000 (eth0) using random MAC address - be:02:fe:eb:de:6a
+eth0: ethernet@ff0d0000
+Hit any key to stop autoboot:  0
+SF: Detected mt25qu02g with page size 256 Bytes, erase size 64 KiB, total 256 MiB
+device 0 offset 0x3e80000, size 0x80000
+SF: 524288 bytes @ 0x3e80000 Read: OK
+QSPI: Trying to boot script at 20000000
+## Executing script at 20000000
+Trying to load boot images from qspi0
+SF: Detected mt25qu02g with page size 256 Bytes, erase size 64 KiB, total 256 MiB
+device 0 offset 0x3f00000, size 0x3700000
+SF: 57671680 bytes @ 0x3f00000 Read: OK
+## Loading kernel from FIT Image at 10000000 ...
+   Using 'conf-system-top.dtb' configuration
+   Trying 'kernel-1' kernel subimage
+     Description:  Linux kernel
+     Created:      2022-05-06  11:24:37 UTC
+     Type:         Kernel Image
+     Compression:  gzip compressed
+     Data Start:   0x10000100
+     Data Size:    11158627 Bytes = 10.6 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: 0x00080000
+     Entry Point:  0x00080000
+     Hash algo:    sha256
+     Hash value:   aa1287791559c598ba73abf7279a80d8d22dd6012aba6b2ea26ce6e8066ee56e
+   Verifying Hash Integrity ... sha256+ OK
+## Loading ramdisk from FIT Image at 10000000 ...
+   Using 'conf-system-top.dtb' configuration
+   Trying 'ramdisk-1' ramdisk subimage
+     Description:  petalinux-image-minimal
+     Created:      2022-05-06  11:24:37 UTC
+     Type:         RAMDisk Image
+     Compression:  uncompressed
+     Data Start:   0x10aaec78
+     Data Size:    45085214 Bytes = 43 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: unavailable
+     Entry Point:  unavailable
+     Hash algo:    sha256
+     Hash value:   5b43c3ee116673375f5fde801277f38260048a414f13df213d7a7abb529f20f8
+   Verifying Hash Integrity ... sha256+ OK
+## Loading fdt from FIT Image at 10000000 ...
+   Using 'conf-system-top.dtb' configuration
+   Trying 'fdt-system-top.dtb' fdt subimage
+     Description:  Flattened Device Tree blob
+     Created:      2022-05-06  11:24:37 UTC
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x10aa4674
+     Data Size:    42292 Bytes = 41.3 KiB
+     Architecture: AArch64
+     Hash algo:    sha256
+     Hash value:   819a8ab5daf37e885e2f613993aa18b98110d4d26b4746bfc629a8dc1c1efc46
+   Verifying Hash Integrity ... sha256+ OK
+   Booting using the fdt blob at 0x10aa4674
+   Uncompressing Kernel Image
+   Loading Ramdisk to 7b213000, end 7dd1221e ... OK
+   Loading Device Tree to 000000007b205000, end 000000007b212533 ... OK
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.10.0-xilinx-v2021.1 (oe-user@oe-host) (aarch64-xilinx-linux-gcc (GCC) 10.2.0, GNU ld (GNU Binutils) 2.35.1) #1 SMP Fri May 6 11:24:37 UTC 2022
+[    0.000000] Machine model: xlnx,zynqmp
+[    0.000000] earlycon: cdns0 at MMIO 0x00000000ff010000 (options '115200n8')
+[    0.000000] printk: bootconsole [cdns0] enabled
+[    0.000000] efi: UEFI not found.
+[    0.000000] [Firmware Bug]: Kernel image misaligned at boot, please fix your bootloader!
+[    0.000000] cma: Reserved 256 MiB at 0x000000006b000000
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000000000000-0x000000003fffffff]
+[    0.000000]   DMA32    [mem 0x0000000040000000-0x000000007fefffff]
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x000000007fefffff]
+[    0.000000] Zeroed struct page in unavailable ranges: 256 pages
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000007fefffff]
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.2
+[    0.000000] percpu: Embedded 22 pages/cpu s50968 r8192 d30952 u90112
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 515844
+[    0.000000] Kernel command line: earlycon console=ttyPS0,115200 clk_ignore_unused cpuidle.off=1
+[    0.000000] Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] software IO TLB: mapped [mem 0x000000003bfff000-0x000000003ffff000] (64MB)
+[    0.000000] Memory: 1650504K/2096128K available (15936K kernel code, 1722K rwdata, 12028K rodata, 2624K init, 516K bss, 183480K reserved, 262144K cma-reserved)
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu:     RCU event tracing is enabled.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GIC: Adjusting CPU interface base to 0x00000000f902f000
+[    0.000000] GIC: Using split EOI/Deactivate mode
+[    0.000000] random: get_random_bytes called from start_kernel+0x31c/0x524 with crng_init=0
+[    0.000000] arch_timer: cp15 timer(s) running at 100.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x171024e7e0, max_idle_ns: 440795205315 ns
+[    0.000003] sched_clock: 56 bits at 100MHz, resolution 10ns, wraps every 4398046511100ns
+[    0.008445] Console: colour dummy device 80x25
+[    0.012483] Calibrating delay loop (skipped), value calculated using timer frequency.. 200.00 BogoMIPS (lpj=400000)
+[    0.022841] pid_max: default: 32768 minimum: 301
+[    0.027596] Mount-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.034787] Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.043640] rcu: Hierarchical SRCU implementation.
+[    0.047531] EFI services will not be available.
+[    0.051965] smp: Bringing up secondary CPUs ...
+[    0.056700] Detected VIPT I-cache on CPU1
+[    0.056744] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.057150] Detected VIPT I-cache on CPU2
+[    0.057174] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.057555] Detected VIPT I-cache on CPU3
+[    0.057578] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.057629] smp: Brought up 1 node, 4 CPUs
+[    0.091780] SMP: Total of 4 processors activated.
+[    0.096453] CPU features: detected: 32-bit EL0 Support
+[    0.101556] CPU features: detected: CRC32 instructions
+[    0.106694] CPU: All CPU(s) started at EL2
+[    0.110736] alternatives: patching kernel code
+[    0.116257] devtmpfs: initialized
+[    0.122773] Registered cp15_barrier emulation handler
+[    0.123451] Registered setend emulation handler
+[    0.128057] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.137637] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.150527] pinctrl core: initialized pinctrl subsystem
+[    0.151220] NET: Registered protocol family 16
+[    0.155922] DMA: preallocated 256 KiB GFP_KERNEL pool for atomic allocations
+[    0.161593] DMA: preallocated 256 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.169326] DMA: preallocated 256 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.177156] audit: initializing netlink subsys (disabled)
+[    0.182559] audit: type=2000 audit(0.116:1): state=initialized audit_enabled=0 res=1
+[    0.182891] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.196978] ASID allocator initialised with 65536 entries
+[    0.220310] HugeTLB registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.221364] HugeTLB registered 32.0 MiB page size, pre-allocated 0 pages
+[    0.228035] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.234698] HugeTLB registered 64.0 KiB page size, pre-allocated 0 pages
+[    1.300545] DRBG: Continuing without Jitter RNG
+[    1.378173] raid6: neonx8   gen()  2143 MB/s
+[    1.446232] raid6: neonx8   xor()  1597 MB/s
+[    1.514296] raid6: neonx4   gen()  2187 MB/s
+[    1.582356] raid6: neonx4   xor()  1567 MB/s
+[    1.650431] raid6: neonx2   gen()  2076 MB/s
+[    1.718484] raid6: neonx2   xor()  1436 MB/s
+[    1.786556] raid6: neonx1   gen()  1774 MB/s
+[    1.854617] raid6: neonx1   xor()  1220 MB/s
+[    1.922691] raid6: int64x8  gen()  1438 MB/s
+[    1.990746] raid6: int64x8  xor()   771 MB/s
+[    2.058813] raid6: int64x4  gen()  1602 MB/s
+[    2.126875] raid6: int64x4  xor()   819 MB/s
+[    2.194952] raid6: int64x2  gen()  1397 MB/s
+[    2.263011] raid6: int64x2  xor()   750 MB/s
+[    2.331089] raid6: int64x1  gen()  1033 MB/s
+[    2.399163] raid6: int64x1  xor()   517 MB/s
+[    2.399201] raid6: using algorithm neonx4 gen() 2187 MB/s
+[    2.403156] raid6: .... xor() 1567 MB/s, rmw enabled
+[    2.408086] raid6: using neon recovery algorithm
+[    2.413084] iommu: Default domain type: Translated
+[    2.417733] SCSI subsystem initialized
+[    2.421391] usbcore: registered new interface driver usbfs
+[    2.426711] usbcore: registered new interface driver hub
+[    2.431990] usbcore: registered new device driver usb
+[    2.437110] mc: Linux media interface: v0.10
+[    2.441236] videodev: Linux video capture interface: v2.00
+[    2.446730] EDAC MC: Ver: 3.0.0
+[    2.450184] zynqmp-ipi-mbox mailbox@ff990400: Registered ZynqMP IPI mbox with TX/RX channels.
+[    2.458558] jesd204: found 0 devices and 0 topologies
+[    2.463306] FPGA manager framework
+[    2.466772] Advanced Linux Sound Architecture Driver Initialized.
+[    2.473094] Bluetooth: Core ver 2.22
+[    2.476260] NET: Registered protocol family 31
+[    2.480661] Bluetooth: HCI device and connection manager initialized
+[    2.486977] Bluetooth: HCI socket layer initialized
+[    2.491819] Bluetooth: L2CAP socket layer initialized
+[    2.496843] Bluetooth: SCO socket layer initialized
+[    2.502003] clocksource: Switched to clocksource arch_sys_counter
+[    2.507883] VFS: Disk quotas dquot_6.6.0
+[    2.511676] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    2.522616] NET: Registered protocol family 2
+[    2.523139] tcp_listen_portaddr_hash hash table entries: 1024 (order: 2, 16384 bytes, linear)
+[    2.531289] TCP established hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    2.539238] TCP bind hash table entries: 16384 (order: 6, 262144 bytes, linear)
+[    2.546600] TCP: Hash tables configured (established 16384 bind 16384)
+[    2.552959] UDP hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    2.559592] UDP-Lite hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    2.566769] NET: Registered protocol family 1
+[    2.571259] RPC: Registered named UNIX socket transport module.
+[    2.576861] RPC: Registered udp transport module.
+[    2.581522] RPC: Registered tcp transport module.
+[    2.586191] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    2.593182] PCI: CLS 0 bytes, default 64
+[    2.596590] Trying to unpack rootfs image as initramfs...
+[    4.801503] Freeing initrd memory: 44028K
+[    4.802115] hw perfevents: no interrupt-affinity property for /pmu, guessing.
+[    4.807186] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    4.815562] Initialise system trusted keyrings
+[    4.819239] workingset: timestamp_bits=46 max_order=19 bucket_order=0
+[    4.826206] NFS: Registering the id_resolver key type
+[    4.830514] Key type id_resolver registered
+[    4.834655] Key type id_legacy registered
+[    4.838652] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    4.845309] jffs2: version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
+[    4.852506] fuse: init (API version 7.32)
+[    4.891468] NET: Registered protocol family 38
+[    4.891512] xor: measuring software checksum speed
+[    4.899201]    8regs           :  2363 MB/sec
+[    4.902868]    32regs          :  2799 MB/sec
+[    4.907811]    arm64_neon      :  2380 MB/sec
+[    4.908001] xor: using function: 32regs (2799 MB/sec)
+[    4.913027] Key type asymmetric registered
+[    4.917088] Asymmetric key parser 'x509' registered
+[    4.921954] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    4.929287] io scheduler mq-deadline registered
+[    4.933782] io scheduler kyber registered
+[    4.964693] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    4.969145] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    4.976096] brd: module loaded
+[    4.980709] loop: module loaded
+[    4.980993] Registered mathworks_ip class
+[    4.984308] libphy: Fixed MDIO Bus: probed
+[    4.987307] tun: Universal TUN/TAP device driver, 1.6
+[    4.991360] CAN device driver interface
+[    4.995856] usbcore: registered new interface driver asix
+[    5.000497] usbcore: registered new interface driver ax88179_178a
+[    5.006528] usbcore: registered new interface driver cdc_ether
+[    5.012319] usbcore: registered new interface driver net1080
+[    5.017942] usbcore: registered new interface driver cdc_subset
+[    5.023824] usbcore: registered new interface driver zaurus
+[    5.029369] usbcore: registered new interface driver cdc_ncm
+[    5.035712] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    5.041453] ehci-pci: EHCI PCI platform driver
+[    5.046257] usbcore: registered new interface driver uas
+[    5.051175] usbcore: registered new interface driver usb-storage
+[    5.057162] usbcore: registered new interface driver usbserial_generic
+[    5.063608] usbserial: USB Serial support registered for generic
+[    5.069581] usbcore: registered new interface driver ftdi_sio
+[    5.075284] usbserial: USB Serial support registered for FTDI USB Serial Device
+[    5.082556] usbcore: registered new interface driver upd78f0730
+[    5.088434] usbserial: USB Serial support registered for upd78f0730
+[    5.096058] rtc_zynqmp ffa60000.rtc: registered as rtc0
+[    5.099858] rtc_zynqmp ffa60000.rtc: setting system clock to 2103-10-17T18:50:38 UTC (4222090238)
+[    5.108708] i2c /dev entries driver
+[    5.113837] usbcore: registered new interface driver uvcvideo
+[    5.117831] USB Video Class driver (1.1.1)
+[    5.122839] Bluetooth: HCI UART driver ver 2.3
+[    5.126310] Bluetooth: HCI UART protocol H4 registered
+[    5.131411] Bluetooth: HCI UART protocol BCSP registered
+[    5.136701] Bluetooth: HCI UART protocol LL registered
+[    5.141791] Bluetooth: HCI UART protocol ATH3K registered
+[    5.147168] Bluetooth: HCI UART protocol Three-wire (H5) registered
+[    5.153416] Bluetooth: HCI UART protocol Intel registered
+[    5.158757] Bluetooth: HCI UART protocol QCA registered
+[    5.163959] usbcore: registered new interface driver bcm203x
+[    5.169581] usbcore: registered new interface driver bpa10x
+[    5.175118] usbcore: registered new interface driver bfusb
+[    5.180565] usbcore: registered new interface driver btusb
+[    5.186030] usbcore: registered new interface driver ath3k
+[    5.191529] EDAC MC: ECC not enabled
+[    5.195135] EDAC DEVICE0: Giving out device to module zynqmp-ocm-edac controller zynqmp_ocm: DEV ff960000.memory-controller (INTERRUPT)
+[    5.207425] sdhci: Secure Digital Host Controller Interface driver
+[    5.213248] sdhci: Copyright(c) Pierre Ossman
+[    5.217566] sdhci-pltfm: SDHCI platform and OF driver helper
+[    5.223550] ledtrig-cpu: registered to indicate activity on CPUs
+[    5.229170] SMCCC: SOC_ID: ARCH_SOC_ID not implemented, skipping ....
+[    5.235600] zynqmp_firmware_probe Platform Management API v1.1
+[    5.241355] zynqmp_firmware_probe Trustzone version v1.0
+[    5.299341] zynqmp-aes firmware:zynqmp-firmware:zynqmp-aes: will run requests pump with realtime priority
+[    5.319231] alg: No test for xilinx-keccak-384 (zynqmp-keccak-384)
+[    5.319957] alg: No test for xilinx-zynqmp-rsa (zynqmp-rsa)
+[    5.325470] usbcore: registered new interface driver usbhid
+[    5.330848] usbhid: USB HID core driver
+[    5.341778] fpga_manager fpga0: Xilinx ZynqMP FPGA Manager registered
+[    5.343077] usbcore: registered new interface driver snd-usb-audio
+[    5.350414] pktgen: Packet Generator for packet performance testing. Version: 2.75
+[    5.356855] Initializing XFRM netlink socket
+[    5.360558] NET: Registered protocol family 10
+[    5.365315] Segment Routing with IPv6
+[    5.368689] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    5.374756] NET: Registered protocol family 17
+[    5.378831] NET: Registered protocol family 15
+[    5.383305] can: controller area network core
+[    5.387586] NET: Registered protocol family 29
+[    5.391971] can: raw protocol
+[    5.394908] can: broadcast manager protocol
+[    5.399062] can: netlink gateway - max_hops=1
+[    5.403459] Bluetooth: RFCOMM TTY layer initialized
+[    5.408237] Bluetooth: RFCOMM socket layer initialized
+[    5.413345] Bluetooth: RFCOMM ver 1.11
+[    5.417054] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    5.422326] Bluetooth: BNEP filters: protocol multicast
+[    5.427519] Bluetooth: BNEP socket layer initialized
+[    5.432451] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    5.438331] Bluetooth: HIDP socket layer initialized
+[    5.443387] 9pnet: Installing 9P2000 support
+[    5.447530] NET: Registered protocol family 36
+[    5.451927] Key type dns_resolver registered
+[    5.456332] registered taskstats version 1
+[    5.460221] Loading compiled-in X.509 certificates
+[    5.465359] Btrfs loaded, crc32c=crc32c-generic
+[    5.478479] ff010000.serial: ttyPS0 at MMIO 0xff010000 (irq = 50, base_baud = 6250000) is a xuartps
+[    5.487499] printk: console [ttyPS0] enabled
+[    5.487499] printk: console [ttyPS0] enabled
+[    5.491794] printk: bootconsole [cdns0] disabled
+[    5.491794] printk: bootconsole [cdns0] disabled
+[    5.501116] of-fpga-region fpga-full: FPGA Region probed
+[    5.512152] xilinx-zynqmp-dma fd500000.dma: ZynqMP DMA driver Probe success
+[    5.519337] xilinx-zynqmp-dma fd510000.dma: ZynqMP DMA driver Probe success
+[    5.526515] xilinx-zynqmp-dma fd520000.dma: ZynqMP DMA driver Probe success
+[    5.533693] xilinx-zynqmp-dma fd530000.dma: ZynqMP DMA driver Probe success
+[    5.540869] xilinx-zynqmp-dma fd540000.dma: ZynqMP DMA driver Probe success
+[    5.548045] xilinx-zynqmp-dma fd550000.dma: ZynqMP DMA driver Probe success
+[    5.555232] xilinx-zynqmp-dma fd560000.dma: ZynqMP DMA driver Probe success
+[    5.562405] xilinx-zynqmp-dma fd570000.dma: ZynqMP DMA driver Probe success
+[    5.569652] xilinx-zynqmp-dma ffa80000.dma: ZynqMP DMA driver Probe success
+[    5.576833] xilinx-zynqmp-dma ffa90000.dma: ZynqMP DMA driver Probe success
+[    5.584008] xilinx-zynqmp-dma ffaa0000.dma: ZynqMP DMA driver Probe success
+[    5.591185] xilinx-zynqmp-dma ffab0000.dma: ZynqMP DMA driver Probe success
+[    5.598362] xilinx-zynqmp-dma ffac0000.dma: ZynqMP DMA driver Probe success
+[    5.605536] xilinx-zynqmp-dma ffad0000.dma: ZynqMP DMA driver Probe success
+[    5.612717] xilinx-zynqmp-dma ffae0000.dma: ZynqMP DMA driver Probe success
+[    5.619896] xilinx-zynqmp-dma ffaf0000.dma: ZynqMP DMA driver Probe success
+[    5.627228] zynqmp_pll_disable() clock disable failed for rpll_int, ret = -13
+[    5.634914] adrv9002_probe : 4619
+[    5.638335] probe function exit : 4681
+[    5.646597] spi-nor spi0.0: SPI-NOR-UniqueID 1044003eda0b00140d002100014e813efb
+[    5.654487] spi-nor spi0.0: trying to lock already unlocked area
+[    5.660489] spi-nor spi0.0: mt25qu02g (262144 Kbytes)
+[    5.666845] macb ff0d0000.ethernet: Not enabling partial store and forward
+[    5.679358] libphy: MACB_mii_bus: probed
+[    5.683329] macb ff0d0000.ethernet eth0: Cadence GEM rev 0x50070106 at 0xff0d0000 irq 38 (be:02:fe:eb:de:6a)
+[    5.693735] xilinx-axipmon ffa00000.perf-monitor: Probed Xilinx APM
+[    5.700358] xilinx-axipmon fd0b0000.perf-monitor: Probed Xilinx APM
+[    5.706919] xilinx-axipmon fd490000.perf-monitor: Probed Xilinx APM
+[    5.713456] xilinx-axipmon ffa10000.perf-monitor: Probed Xilinx APM
+[    5.720313] cdns-i2c ff020000.i2c: 400 kHz mmio ff020000 irq 40
+[    5.726756] i2c i2c-1: of_i2c: modalias failure on /axi/i2c@ff030000/i2c-mux@75
+[    5.734066] i2c i2c-1: Failed to create I2C device for /axi/i2c@ff030000/i2c-mux@75
+[    5.741740] cdns-i2c ff030000.i2c: 400 kHz mmio ff030000 irq 41
+[    5.748121] cpu cpu0: dev_pm_opp_set_rate: failed to find current OPP for freq 1200000000 (-34)
+[    5.756864] cpufreq: cpufreq_online: CPU0: Running at unlisted initial frequency: 1200000 KHz, changing to: 1199999 KHz
+[    5.767653] cpu cpu0: dev_pm_opp_set_rate: failed to find current OPP for freq 1200000000 (-34)
+[    5.802380] MESSAGE: ADRV9001_SPIWRITEBYTE:         SPI_INTERFACE_CONFIG_B: addr=0x0001, data=0x80
+[    5.811457] MESSAGE: ADRV9001_SPIWRITEBYTE:         SPI_INTERFACE_CONFIG_A: addr=0x0000, data=0x3c
+[    5.820623] MESSAGE:ADRV9001_SPIREADBYTE:                    VENDOR_ID_0: addr=0x000b, data=0x56
+[    5.829521] MESSAGE:ADRV9001_SPIREADBYTE:                    VENDOR_ID_1: addr=0x000c, data=0x04
+[    5.838423] MESSAGE: ADRV9001_SPIWRITEBYTE:                    SCRATCH_PAD: addr=0x0009, data=0xb6
+[    5.847493] MESSAGE:ADRV9001_SPIREADBYTE:                    SCRATCH_PAD: addr=0x0009, data=0xb6
+[    5.856391] MESSAGE: ADRV9001_SPIWRITEBYTE:                    SCRATCH_PAD: addr=0x0009, data=0x49
+[    5.865461] MESSAGE:ADRV9001_SPIREADBYTE:                    SCRATCH_PAD: addr=0x0009, data=0x49
+[    5.874356] MESSAGE:ADRV9001_SPIREADBYTE: SCRATCH_PAD_READ_ONLY_UPPER_ADDR: addr=0x01fc, data=0xa5
+[    5.883428] MESSAGE: ADRV9001_SPIWRITEBYTE:         SCRATCH_PAD_UPPER_ADDR: addr=0x01fb, data=0xb6
+[    5.892500] MESSAGE:ADRV9001_SPIREADBYTE:         SCRATCH_PAD_UPPER_ADDR: addr=0x01fb, data=0xb6
+[    5.901391] MESSAGE: ADRV9001_SPIWRITEBYTE:         SCRATCH_PAD_UPPER_ADDR: addr=0x01fb, data=0x49
+[    5.910466] MESSAGE:ADRV9001_SPIREADBYTE:         SCRATCH_PAD_UPPER_ADDR: addr=0x01fb, data=0x49
+[    5.919334] adrv9001_InitAnalog_Validate: 377
+[    5.923716] MESSAGE: ADRV9001_SPIWRITEBYTE:            MASTERBIAS_CONFIG_0: addr=0x01b4, data=0x00
+[    5.932894] MESSAGE: ADRV9001_SPIWRITEBYTE:              ANALOG_CONTROL_18: addr=0x01c9, data=0x05
+[    5.941965] MESSAGE: ADRV9001_SPIWRITEBYTE:           DEVICE_CLK_CONTROL_1: addr=0x01e0, data=0x12
+[    5.951006] adrv9001_InitAnalog : 628
+[    5.951009] adrv9001_InitAnalog : 524
+[    5.954665] adrv9001_InitAnalog : 524
+[    5.958319] adrv9001_InitAnalog : 488
+[    5.961969] adrv9001_InitAnalog : 596
+[    5.965619] adrv9001_InitAnalog : 488
+[    5.969274] adrv9001_InitAnalog : 596
+[    5.972927] adrv9001_InitAnalog : 400
+[    5.980412] MESSAGE: ADRV9001_SPIWRITEBYTE:        REF_CLK_GEN_OUT_CLKS_PD: addr=0x01ca, data=0x1b
+[    5.989480] MESSAGE: ADRV9001_SPIWRITEBYTE:             REF_CLK_PAD_CONFIG: addr=0x0076, data=0x00
+[    5.998550] MESSAGE: ADRV9001_SPIWRITEBYTE:                   BBIC_ENABLES: addr=0x0162, data=0x00
+[    6.007623] MESSAGE:ADRV9001_SPIREADBYTE:                 AHB_SPI_BRIDGE: addr=0x00d2, data=0x0e
+[    6.016519] MESSAGE: ADRV9001_SPIWRITEBYTE:                 AHB_SPI_BRIDGE: addr=0x00d2, data=0x0f
+[    6.025596] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0116, data=0xf1
+[    6.076765] random: fast init done
+[    6.172999] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE0: addr=0x0117, data=0x38
+[    6.182073] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE1: addr=0x0118, data=0x40
+[    6.191142] MESSAGE: ADRV9001_SPIWRITEBYTE:             LAST_STREAM_NUMBER: addr=0x0119, data=0x3f
+[    6.200212] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0116, data=0xf0
+[    6.209287] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x023c, data=0xc1
+[    6.252203] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE0: addr=0x023d, data=0x10
+[    6.261278] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE1: addr=0x023e, data=0x00
+[    6.270347] MESSAGE: ADRV9001_SPIWRITEBYTE:             LAST_STREAM_NUMBER: addr=0x023f, data=0x3f
+[    6.279418] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x023c, data=0xc0
+[    6.288492] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0254, data=0xc1
+[    6.331366] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE0: addr=0x0255, data=0x10
+[    6.340439] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE1: addr=0x0256, data=0x00
+[    6.349509] MESSAGE: ADRV9001_SPIWRITEBYTE:             LAST_STREAM_NUMBER: addr=0x0257, data=0x3f
+[    6.358580] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0254, data=0xc0
+[    6.367653] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x026c, data=0xc1
+[    6.410619] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE0: addr=0x026d, data=0x10
+[    6.419687] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE1: addr=0x026e, data=0x00
+[    6.428754] MESSAGE: ADRV9001_SPIWRITEBYTE:             LAST_STREAM_NUMBER: addr=0x026f, data=0x3f
+[    6.437828] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x026c, data=0xc0
+[    6.446902] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0284, data=0xc1
+[    6.489836] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE0: addr=0x0285, data=0x10
+[    6.498911] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE1: addr=0x0286, data=0x00
+[    6.507989] MESSAGE: ADRV9001_SPIWRITEBYTE:             LAST_STREAM_NUMBER: addr=0x0287, data=0x3f
+[    6.517057] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0284, data=0xc0
+[    6.526136] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_BOOT_ADDR_BYTE_0: addr=0x00d3, data=0x2d
+[    6.535206] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_BOOT_ADDR_BYTE_1: addr=0x00d4, data=0x5c
+[    6.544280] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_BOOT_ADDR_BYTE_2: addr=0x00d5, data=0x04
+[    6.553350] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_BOOT_ADDR_BYTE_3: addr=0x00d6, data=0x01
+[    6.562421] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_STACK_PTR_BYTE_0: addr=0x00d7, data=0x60
+[    6.571491] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_STACK_PTR_BYTE_1: addr=0x00d8, data=0x1d
+[    6.580562] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_STACK_PTR_BYTE_2: addr=0x00d9, data=0x01
+[    6.589632] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_STACK_PTR_BYTE_3: addr=0x00da, data=0x20
+[    9.050854] random: crng init done
+[    9.303977] MESSAGE: ADRV9001_SPIWRITEBYTE:          RX1_DEC_POWR_CONFIG_1: addr=0x1012, data=0x09
+[    9.313053] MESSAGE: ADRV9001_SPIWRITEBYTE:       RX1_DIGITAL_GAIN_CONFIG2: addr=0x0f67, data=0x01
+[    9.338591] MESSAGE: ADRV9001_SPIWRITEBYTE:          RX1_DEC_POWR_CONFIG_1: addr=0x1012, data=0x09
+[    9.347657] MESSAGE: ADRV9001_SPIWRITEBYTE:       RX1_DIGITAL_GAIN_CONFIG2: addr=0x0f67, data=0x01
+[    9.360346] MESSAGE: ADRV9001_SPIWRITEBYTE:          RX2_DEC_POWR_CONFIG_1: addr=0x1412, data=0x09
+[    9.369420] MESSAGE: ADRV9001_SPIWRITEBYTE:       RX2_DIGITAL_GAIN_CONFIG2: addr=0x1367, data=0x01
+[    9.395245] MESSAGE: ADRV9001_SPIWRITEBYTE:          RX2_DEC_POWR_CONFIG_1: addr=0x1412, data=0x09
+[    9.404314] MESSAGE: ADRV9001_SPIWRITEBYTE:       RX2_DIGITAL_GAIN_CONFIG2: addr=0x1367, data=0x01
+[    9.678598] adi_adrv9001_powermanagement_Configuread:79
+[    9.678602] function adi_adrv9001_powermanagement_Configure_Validate:27
+[    9.691524] wrData 222
+[    9.693873] wrData 173
+[    9.696225] wrData 190
+[    9.698573] wrData 239
+[    9.700920] rdData 222
+[    9.703270] rdData 173
+[    9.705616] rdData 190
+[    9.707965] rdData 239
+[    9.710317] ReadPattern1 -272716322
+[    9.713793] fixedPattern1 -272716322
+[    9.717357] pwermangment value 0
+[    9.717359] pwermangment value 0
+[    9.720577] pwermangment value 0
+[    9.723796] pwermangment value 0
+[    9.727018] pwermangment value 0
+[    9.730238] pwermangment value 0
+[    9.733453] pwermangment value 0
+[    9.736670] pwermangment value 0
+[    9.739890] pwermangment value 0
+[    9.743109] pwermangment value 0
+[    9.746330] pwermangment value 0
+[    9.749546] pwermangment value 0
+[    9.752762] pwermangment value 0
+[    9.755982] pwermangment value 0
+[    9.759203] pwermangment value 0
+[    9.762423] pwermangment value 0
+[    9.765638] pwermangment value 0
+[    9.768855] pwermangment value 0
+[    9.772078] pwermangment value 0
+[    9.779173] powerMangementPrint is 0
+[    9.779175] powerMangementPrint is 0
+[    9.782747] powerMangementPrint is 0
+[    9.786311] powerMangementPrint is 0
+[    9.789873] powerMangementPrint is 0
+[    9.793437] powerMangementPrint is 0
+[    9.797004] powerMangementPrint is 0
+[    9.800572] powerMangementPrint is 0
+[    9.804139] powerMangementPrint is 0
+[    9.807706] powerMangementPrint is 0
+[    9.811275] powerMangementPrint is 0
+[    9.814842] powerMangementPrint is 0
+[    9.818409] powerMangementPrint is 0
+[    9.821972] powerMangementPrint is 0
+[    9.825535] powerMangementPrint is 0
+[    9.829102] powerMangementPrint is 0
+[    9.832670] powerMangementPrint is 0
+[    9.836238] powerMangementPrint is 0
+[    9.839805] powerMangementPrint is 0
+[    9.843373] function adi_adrv9001_powermanagement_Configure_Validate:91
+[    9.855408] MESSAGE: ADRV9001_SPIWRITEBYTE:                      ARM_CTL_1: addr=0x00cf, data=0x89
+[    9.864479] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x00
+[    9.873372] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[    9.982295] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x00
+[    9.991194] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.100112] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   10.109010] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.118461] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   10.127532] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x8b
+[   10.136602] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x00
+[   10.145672] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.154748] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.164213] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   10.173285] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x8b
+[   10.182354] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x01
+[   10.191424] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.200499] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.209954] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   10.219030] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x8b
+[   10.228106] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x02
+[   10.237175] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.246250] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.255179] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x01
+[   10.264251] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   10.273320] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   10.282393] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   10.292370] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.302078] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x01
+[   10.311148] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   10.320218] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.329291] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.338222] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   10.347293] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   10.356370] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x1a
+[   10.365440] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   10.374514] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   10.383991] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.393883] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x01
+[   10.402953] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x9c
+[   10.412027] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.421100] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.430028] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x04
+[   10.439100] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   10.448171] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   10.457243] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   10.467239] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.477039] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x04
+[   10.486120] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   10.495189] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.504262] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.513184] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   10.522255] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   10.531325] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x18
+[   10.540396] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   10.549468] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   10.558945] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.568846] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x04
+[   10.577919] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x9c
+[   10.586989] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.596062] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.604992] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x02
+[   10.614071] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   10.623137] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   10.632206] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   10.642205] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.652001] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x02
+[   10.661072] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   10.670145] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.679216] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.688145] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   10.697216] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   10.706288] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x1b
+[   10.715358] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   10.724431] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   10.733850] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.743775] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x02
+[   10.752848] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x9c
+[   10.761918] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.770991] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.779919] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x08
+[   10.788990] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   10.798061] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   10.807134] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   10.817132] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.826914] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x08
+[   10.835984] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   10.845051] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.854131] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.863064] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   10.872143] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   10.881213] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x19
+[   10.890286] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   10.899358] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   10.908834] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.918737] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x08
+[   10.927809] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x9c
+[   10.936879] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.945954] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.954884] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0xcf
+[   10.963954] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x93
+[   10.973022] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.982100] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.991560] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   11.000644] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x8f
+[   11.009713] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0xb2
+[   11.018785] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0104, data=0x00
+[   11.027855] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0105, data=0x00
+[   11.036927] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   11.046000] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   11.062142] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   11.071214] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x00
+[   11.080283] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x00
+[   11.089353] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x02
+[   11.098426] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.108343] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.118261] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.128174] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.138086] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.147997] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.157910] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.167824] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.177738] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.187657] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.197569] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.207480] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.217395] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.227307] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.237222] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.247142] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.257055] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.266966] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.276874] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.286794] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.296712] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.306625] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.316537] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.326451] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.336362] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.346275] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.356184] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.366103] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.376021] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.385933] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.395850] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.405768] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.415680] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.425593] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.435506] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.445417] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.455330] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.465243] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.475156] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.485068] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.494981] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.504897] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.514816] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.524736] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.534649] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.544560] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.554475] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.564386] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.574299] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.584208] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.594124] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.604033] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.613952] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.623873] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.633791] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.643705] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.653617] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.663528] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.673441] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.683354] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.693266] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.703180] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.713088] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.723008] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.732926] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.742839] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.752753] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.762673] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.772586] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.782498] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.792409] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.802322] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.812235] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.822148] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.832060] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.841973] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.851885] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.861797] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.871708] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.881623] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.891535] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.901448] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.911360] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.921273] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.931188] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.941103] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.951027] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.960943] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.970859] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.980779] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.990696] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.000606] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.010521] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.020433] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.030349] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.040268] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.050180] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.060092] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.070008] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.079926] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.089838] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.099751] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.109664] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.119576] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.129489] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.139398] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.149316] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.159236] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.169148] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.179060] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.188973] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.198889] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.208806] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.218719] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.228629] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.238545] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.248453] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.258372] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.268291] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.278203] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.288117] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.298029] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.307941] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.317853] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.327769] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.337688] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.347600] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.357510] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.367427] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.377346] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.387259] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.397171] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.407084] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.416998] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.426909] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.436821] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.446733] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.456649] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.466566] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.476483] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.486402] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.496314] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.506224] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.516139] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.526052] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.535964] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.545878] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.555790] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.565702] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.575611] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.585532] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.595448] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.605361] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.615271] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.625186] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.635097] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.645011] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.654925] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.664836] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.674751] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.684657] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.694577] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.704495] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.714410] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.724329] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.734243] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.744154] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.754067] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.763978] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.773892] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.783804] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.793713] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.803634] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.813551] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.823463] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.833376] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.843290] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.853201] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.863113] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.873026] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.882940] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.892851] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.902762] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.912679] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.922598] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.932510] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.942427] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.952345] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.962257] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.972173] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.982092] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.992003] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.001916] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.011824] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.021743] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.031662] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.041575] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.051486] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.061402] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.071321] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.081233] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.091143] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.101061] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.110980] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.120888] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.130808] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.140726] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.150639] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.160551] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.170465] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.180376] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.190290] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.200201] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.210114] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.220027] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.229939] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.239854] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.249773] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.259684] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.269598] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.279511] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.289423] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.299336] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.309248] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.319162] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.329074] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.338984] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.348901] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.358823] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.368741] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.378652] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.388566] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.398479] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.408391] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.418305] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.428216] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.438129] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.448042] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.457956] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.467874] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.477787] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.487702] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.497613] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.507525] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.517438] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.527351] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.537263] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.547175] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.557084] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.567004] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.576924] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.586836] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.596746] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.606658] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.616575] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.626494] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.636406] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.646320] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.656230] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.666144] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.676054] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.685969] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.695881] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.705797] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.715715] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.725628] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.735538] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.745453] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.755365] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.765278] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.775193] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.785112] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.795028] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.804946] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.814859] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.824771] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.834685] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.844596] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.854509] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.864421] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.874333] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.884247] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.894160] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.904071] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.913984] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.923895] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.933815] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.943731] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.953643] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.963557] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.973468] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.983377] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.993297] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.003215] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.013126] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.023046] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.032961] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.042874] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.052788] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.062708] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.072619] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.082532] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.092443] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.102361] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.112279] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.122191] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.132103] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.142023] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.151938] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.161850] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.171760] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.181678] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.191596] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.201505] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.211424] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.221344] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.231256] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.241168] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.251077] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.260993] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.270906] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.280818] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.290732] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.300641] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.310557] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.320471] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.330391] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.340302] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.350217] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.360136] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.370049] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.379961] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.389875] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.399786] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.409698] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.419608] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.429525] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.439438] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.449357] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.459267] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.469183] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.479097] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.489008] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.498921] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.508831] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.518747] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.528654] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.538574] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.548492] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.558405] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.568320] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.578240] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.588150] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.598063] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.607978] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.617897] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.627810] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.637718] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.647637] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.657547] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.667460] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.677372] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.687285] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.697200] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.707119] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.717030] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.726945] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.736858] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.746767] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.756684] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.766603] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.776515] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.786425] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.796340] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.806253] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.816165] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.826081] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.835999] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.845912] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.855822] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.865741] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.875660] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.885571] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.895481] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.905396] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.915308] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.925220] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.935135] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.945046] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.954964] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.964877] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.974795] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.984714] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.994628] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.004548] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.014461] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.024373] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.034286] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.044197] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.054111] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.064024] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.073932] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.083852] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.093770] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.103682] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.113593] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.123509] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.133419] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.143332] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.153245] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.163158] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.173070] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.182980] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.192897] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.202817] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.212732] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.222648] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.232562] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.242476] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.252391] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.262310] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.272222] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.282132] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.292043] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.301962] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.311881] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.321793] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.331703] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.341620] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.351531] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.361443] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.371356] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.381269] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.391182] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.401090] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.411009] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.420928] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.430840] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.440752] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.450666] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.460577] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.470493] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.480412] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.490324] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.500236] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.510153] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.520070] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.529983] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.539895] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.549806] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.559720] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.569633] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.579544] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.589458] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.599371] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.609283] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.619198] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.629117] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.639034] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.648951] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.658864] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.668776] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.678690] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.688601] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.698514] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.708424] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.718337] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.728253] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.738164] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.748076] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.757987] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.767910] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.777823] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.787735] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.797648] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.807561] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.817473] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.827382] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.837300] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.847211] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.857124] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.867035] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.876949] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.886861] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.896774] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.906687] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.916598] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.926509] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.936420] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.946344] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.956258] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.966169] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.976082] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.986001] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.995918] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.005829] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.015742] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.025656] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.035576] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.045484] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.055403] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.065322] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.075235] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.085147] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.095060] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.104972] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.114885] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.124800] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.134719] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.144632] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.154546] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.164467] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.174386] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.184299] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.194210] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.204123] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.214037] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.223948] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.233862] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.243774] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.253689] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.263604] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.273522] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.283436] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.293354] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.303266] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.313179] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.323092] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.333004] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.342917] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.352829] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x00
+[   16.365959] MESSAGE: ADRV9001_SPIWRITEBYTE:                GPIO_SOURCE_SEL: addr=0x0055, data=0x12
+[   16.375034] MESSAGE: ADRV9001_SPIWRITEBYTE:                GPIO_SOURCE_SEL: addr=0x0055, data=0x13
+[   16.384192] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.393094] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x55
+[   16.402002] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.410904] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x55
+[   16.419833] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x01
+[   16.428907] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x04
+[   16.437980] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0107, data=0x00
+[   16.446881] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.455781] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x56
+[   16.468979] MESSAGE: ADRV9001_SPIWRITEBYTE:                GPIO_SOURCE_SEL: addr=0x0055, data=0x16
+[   16.478055] MESSAGE: ADRV9001_SPIWRITEBYTE:                GPIO_SOURCE_SEL: addr=0x0055, data=0x17
+[   16.487221] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.496117] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x57
+[   16.505020] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.513920] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x57
+[   16.522848] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x02
+[   16.531921] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x04
+[   16.541002] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0107, data=0x00
+[   16.549901] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.558795] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x5b
+[   16.567781] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.576677] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x5f
+[   16.585577] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.594471] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x5f
+[   16.603399] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x04
+[   16.612472] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x04
+[   16.621546] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0107, data=0x00
+[   16.630447] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.639346] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x6f
+[   16.648339] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.657236] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x7f
+[   16.666143] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.675037] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x7f
+[   16.683960] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x08
+[   16.693030] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x04
+[   16.702104] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0107, data=0x00
+[   16.711003] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   16.719904] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0xbf
+[   16.729038] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   16.738106] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   16.747177] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x00
+[   16.756250] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0104, data=0x00
+[   16.765318] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0105, data=0x04
+[   16.774388] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   16.783461] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   16.792383] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   16.801465] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   16.810530] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x01
+[   16.819602] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0104, data=0x01
+[   16.828673] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0105, data=0x04
+[   16.837743] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   16.846816] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   17.241758] SAMPL CLK: 15360000 tuning: RX1
+[   17.245932]   0:1:2:3:4:5:6:7
+[   17.248907] 0:o o o o o o o o
+[   17.251971] 1:o o o o o o o o
+[   17.255033] 2:o o o o o o o o
+[   17.258090] 3:o o o o o o o o
+[   17.261140] 4:o o o o o o o o
+[   17.264200] 5:o o o o o o o o
+[   17.267255] 6:o o o o o o o o
+[   17.270311] 7:o o o o o o o o
+[   17.501775] SAMPL CLK: 15360000 tuning: TX1
+[   17.505951]   0:1:2:3:4:5:6:7
+[   17.508925] 0:# # o o o o o o
+[   17.511988] 1:o # # o o o o o
+[   17.515043] 2:o o o # o o o o
+[   17.518099] 3:o o o o # o o o
+[   17.521149] 4:o o o o # # o o
+[   17.524209] 5:o o o o o # # o
+[   17.527269] 6:o o o o o o # #
+[   17.530331] 7:o o o o o o o #
+[   17.919634] SAMPL CLK: 15360000 tuning: RX2
+[   17.923813]   0:1:2:3:4:5:6:7
+[   17.926792] 0:o o o o o o o o
+[   17.929847] 1:o o o o o o o o
+[   17.932908] 2:o o o o o o o o
+[   17.935963] 3:o o o o o o o o
+[   17.939017] 4:o o o o o o o o
+[   17.942073] 5:o o o o o o o o
+[   17.945124] 6:o o o o o o o o
+[   17.948187] 7:o o o o o o o o
+[   18.179784] SAMPL CLK: 15360000 tuning: TX2
+[   18.183961]   0:1:2:3:4:5:6:7
+[   18.186938] 0:o # o o o o o o
+[   18.190001] 1:o o # o o o o o
+[   18.193050] 2:o o o # o o o o
+[   18.196111] 3:o o o o # o o o
+[   18.199166] 4:o o o o o # o o
+[   18.202222] 5:o o o o o o # #
+[   18.205272] 6:o o o o o o o #
+[   18.208332] 7:o o o o o o o o
+[   18.214727] MESSAGE:ADRV9001_SPIREADBYTE:                   PRODUCT_ID_1: addr=0x0004, data=0xc0
+[   18.223632] MESSAGE:ADRV9001_SPIREADBYTE:              STREAM_BASE_BYTE0: addr=0x0117, data=0x38
+[   18.232535] MESSAGE:ADRV9001_SPIREADBYTE:              STREAM_BASE_BYTE1: addr=0x0118, data=0x40
+[   18.241812] adrv9002 spi1.0: adrv9002-phy Rev 12.0, Firmware 0.20.0.10,  Stream 0.7.9.0,  API version: 48.49.2 successfully initialized
+[   18.255213] cf_axi_adc 84a00000.axi-adrv9002-rx-lpc: ADI AIM (10.01.b) at 0x84A00000 mapped to 0x000000000eec02ab, probed ADC ADRV9002 as MASTER
+[   18.269453] cf_axi_tdd 84a0c800.axi-adrv9002-core-tdd1-lpc: Analog Devices CF_AXI_TDD MASTER (1.00.a)
+[   18.279304] cf_axi_tdd 84a0cc00.axi-adrv9002-core-tdd2-lpc: Analog Devices CF_AXI_TDD MASTER (1.00.a)
+[   18.306273] cf_axi_dds 84a0a000.axi-adrv9002-tx-lpc: Analog Devices CF_AXI_DDS_DDS MASTER (9.01.b) at 0x84A0A000 mapped to 0x00000000ce458c44, probed DDS ADRV9002
+[   18.338269] cf_axi_dds 84a0c000.axi-adrv9002-tx2-lpc: Analog Devices CF_AXI_DDS_DDS MASTER (9.01.b) at 0x84A0C000 mapped to 0x00000000e982c0d3, probed DDS ADRV9002
+[   18.355489] of_cfs_init
+[   18.357940] of_cfs_init: OK
+[   18.360880] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[   18.499101] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[   18.505636] clk: Not disabling unused clocks
+[   18.510116] ALSA device list:
+[   18.513075]   No soundcards found.
+[   18.516773] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[   18.525388] cfg80211: failed to load regulatory.db
+[   18.531069] Freeing unused kernel memory: 2624K
+[   18.566079] Run /init as init process
+INIT: version 2.97 booting
+Starting udev
+[   18.698863] udevd[141]: starting version 3.2.9
+[   18.709119] udevd[142]: starting eudev-3.2.9
+Starting tcf-agent: OK
+
+PetaLinux 2021.1 xilinx-uetc ttyPS0
+
+
+root@xilinx-uetc:~#

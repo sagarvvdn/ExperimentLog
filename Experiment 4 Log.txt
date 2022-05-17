@@ -1,0 +1,2322 @@
+U-Boot 2021.01 (Jun 01 2021 - 11:54:06 +0000)
+
+Board: Xilinx ZynqMP
+DRAM:  2 GiB
+PMUFW:  v1.1
+EL Level:       EL2
+Chip ID:        zu9eg
+NAND:  ERROR:arasan_nand_reset timedout
+ERROR:arasan_nand_cmd_function:command:0xff
+ERROR:arasan_nand_read_buf timedout:Buff RDY
+ERROR:arasan_nand_read_buf timedout:Xfer CMPLT
+2048 MiB
+MMC:
+Loading Environment from SPIFlash... SF: Detected mt25qu02g with page size 256 Bytes, erase size 64 KiB, total 256 MiB
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Bootmode: QSPI_MODE
+Reset reason:   EXTERNAL
+Net:
+ZYNQ GEM: ff0d0000, mdio bus ff0d0000, phyaddr -1, interface rgmii-id
+ZYNQ GEM: requesting PHY reset gpio 70
+
+Warning: ethernet@ff0d0000 (eth0) using random MAC address - e6:9d:69:c4:d2:5b
+eth0: ethernet@ff0d0000
+Hit any key to stop autoboot:  0
+SF: Detected mt25qu02g with page size 256 Bytes, erase size 64 KiB, total 256 MiB
+device 0 offset 0x3e80000, size 0x80000
+SF: 524288 bytes @ 0x3e80000 Read: OK
+QSPI: Trying to boot script at 20000000
+## Executing script at 20000000
+Trying to load boot images from qspi0
+SF: Detected mt25qu02g with page size 256 Bytes, erase size 64 KiB, total 256 MiB
+device 0 offset 0x3f00000, size 0x3700000
+SF: 57671680 bytes @ 0x3f00000 Read: OK
+## Loading kernel from FIT Image at 10000000 ...
+   Using 'conf-system-top.dtb' configuration
+   Trying 'kernel-1' kernel subimage
+     Description:  Linux kernel
+     Created:      2022-05-13  12:55:41 UTC
+     Type:         Kernel Image
+     Compression:  gzip compressed
+     Data Start:   0x10000100
+     Data Size:    11164017 Bytes = 10.6 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: 0x00080000
+     Entry Point:  0x00080000
+     Hash algo:    sha256
+     Hash value:   d93b803eebd38e11d19b110ee44ca2c4b748647fac33678ef77e0f7174236493
+   Verifying Hash Integrity ... sha256+ OK
+## Loading ramdisk from FIT Image at 10000000 ...
+   Using 'conf-system-top.dtb' configuration
+   Trying 'ramdisk-1' ramdisk subimage
+     Description:  petalinux-image-minimal
+     Created:      2022-05-13  12:55:41 UTC
+     Type:         RAMDisk Image
+     Compression:  uncompressed
+     Data Start:   0x10ab0228
+     Data Size:    45085358 Bytes = 43 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: unavailable
+     Entry Point:  unavailable
+     Hash algo:    sha256
+     Hash value:   3b947ccad4a5eba85eff12c3d662ad602ff11cbf288d7b75e5d1dc51fd90813f
+   Verifying Hash Integrity ... sha256+ OK
+## Loading fdt from FIT Image at 10000000 ...
+   Using 'conf-system-top.dtb' configuration
+   Trying 'fdt-system-top.dtb' fdt subimage
+     Description:  Flattened Device Tree blob
+     Created:      2022-05-13  12:55:41 UTC
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x10aa5b84
+     Data Size:    42452 Bytes = 41.5 KiB
+     Architecture: AArch64
+     Hash algo:    sha256
+     Hash value:   a9270534b04702133c1923ff9d03b8fdc93dbee2bffb5f6e2f7763db8c7e7c0e
+   Verifying Hash Integrity ... sha256+ OK
+   Booting using the fdt blob at 0x10aa5b84
+   Uncompressing Kernel Image
+   Loading Ramdisk to 7b213000, end 7dd122ae ... OK
+   Loading Device Tree to 000000007b205000, end 000000007b2125d3 ... OK
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.10.0-xilinx-v2021.1 (oe-user@oe-host) (aarch64-xilinx-linux-gcc (GCC) 10.2.0, GNU ld (GNU Binutils) 2.35.1) #1 SMP Fri May 13 12:55:41 UTC 2022
+[    0.000000] Machine model: xlnx,zynqmp
+[    0.000000] earlycon: cdns0 at MMIO 0x00000000ff010000 (options '115200n8')
+[    0.000000] printk: bootconsole [cdns0] enabled
+[    0.000000] efi: UEFI not found.
+[    0.000000] [Firmware Bug]: Kernel image misaligned at boot, please fix your bootloader!
+[    0.000000] cma: Reserved 256 MiB at 0x000000006b000000
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000000000000-0x000000003fffffff]
+[    0.000000]   DMA32    [mem 0x0000000040000000-0x000000007fefffff]
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x000000007fefffff]
+[    0.000000] Zeroed struct page in unavailable ranges: 256 pages
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000007fefffff]
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.2
+[    0.000000] percpu: Embedded 22 pages/cpu s50968 r8192 d30952 u90112
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 515844
+[    0.000000] Kernel command line: earlycon console=ttyPS0,115200 clk_ignore_unused cpuidle.off=1
+[    0.000000] Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] software IO TLB: mapped [mem 0x000000003bfff000-0x000000003ffff000] (64MB)
+[    0.000000] Memory: 1650444K/2096128K available (16000K kernel code, 1722K rwdata, 12032K rodata, 2624K init, 516K bss, 183540K reserved, 262144K cma-reserved)
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu:     RCU event tracing is enabled.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GIC: Adjusting CPU interface base to 0x00000000f902f000
+[    0.000000] GIC: Using split EOI/Deactivate mode
+[    0.000000] random: get_random_bytes called from start_kernel+0x31c/0x524 with crng_init=0
+[    0.000000] arch_timer: cp15 timer(s) running at 100.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x171024e7e0, max_idle_ns: 440795205315 ns
+[    0.000003] sched_clock: 56 bits at 100MHz, resolution 10ns, wraps every 4398046511100ns
+[    0.008437] Console: colour dummy device 80x25
+[    0.012482] Calibrating delay loop (skipped), value calculated using timer frequency.. 200.00 BogoMIPS (lpj=400000)
+[    0.022841] pid_max: default: 32768 minimum: 301
+[    0.027591] Mount-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.034786] Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.043633] rcu: Hierarchical SRCU implementation.
+[    0.047525] EFI services will not be available.
+[    0.051966] smp: Bringing up secondary CPUs ...
+[    0.056705] Detected VIPT I-cache on CPU1
+[    0.056748] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.057158] Detected VIPT I-cache on CPU2
+[    0.057183] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.057569] Detected VIPT I-cache on CPU3
+[    0.057592] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.057641] smp: Brought up 1 node, 4 CPUs
+[    0.091780] SMP: Total of 4 processors activated.
+[    0.096453] CPU features: detected: 32-bit EL0 Support
+[    0.101556] CPU features: detected: CRC32 instructions
+[    0.106693] CPU: All CPU(s) started at EL2
+[    0.110737] alternatives: patching kernel code
+[    0.116219] devtmpfs: initialized
+[    0.122811] Registered cp15_barrier emulation handler
+[    0.123450] Registered setend emulation handler
+[    0.128056] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.137636] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.150514] pinctrl core: initialized pinctrl subsystem
+[    0.151194] NET: Registered protocol family 16
+[    0.155897] DMA: preallocated 256 KiB GFP_KERNEL pool for atomic allocations
+[    0.161576] DMA: preallocated 256 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.169310] DMA: preallocated 256 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.177140] audit: initializing netlink subsys (disabled)
+[    0.182543] audit: type=2000 audit(0.116:1): state=initialized audit_enabled=0 res=1
+[    0.182877] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.196959] ASID allocator initialised with 65536 entries
+[    0.220414] HugeTLB registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.221467] HugeTLB registered 32.0 MiB page size, pre-allocated 0 pages
+[    0.228140] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.234793] HugeTLB registered 64.0 KiB page size, pre-allocated 0 pages
+[    1.300549] DRBG: Continuing without Jitter RNG
+[    1.378281] raid6: neonx8   gen()  2142 MB/s
+[    1.446338] raid6: neonx8   xor()  1596 MB/s
+[    1.514405] raid6: neonx4   gen()  2190 MB/s
+[    1.582460] raid6: neonx4   xor()  1567 MB/s
+[    1.650538] raid6: neonx2   gen()  2077 MB/s
+[    1.718590] raid6: neonx2   xor()  1435 MB/s
+[    1.786671] raid6: neonx1   gen()  1775 MB/s
+[    1.854721] raid6: neonx1   xor()  1220 MB/s
+[    1.922791] raid6: int64x8  gen()  1438 MB/s
+[    1.990850] raid6: int64x8  xor()   771 MB/s
+[    2.058927] raid6: int64x4  gen()  1603 MB/s
+[    2.126976] raid6: int64x4  xor()   819 MB/s
+[    2.195052] raid6: int64x2  gen()  1397 MB/s
+[    2.263108] raid6: int64x2  xor()   750 MB/s
+[    2.331197] raid6: int64x1  gen()  1034 MB/s
+[    2.399259] raid6: int64x1  xor()   517 MB/s
+[    2.399297] raid6: using algorithm neonx4 gen() 2190 MB/s
+[    2.403250] raid6: .... xor() 1567 MB/s, rmw enabled
+[    2.408181] raid6: using neon recovery algorithm
+[    2.413180] iommu: Default domain type: Translated
+[    2.417834] SCSI subsystem initialized
+[    2.421484] usbcore: registered new interface driver usbfs
+[    2.426808] usbcore: registered new interface driver hub
+[    2.432084] usbcore: registered new device driver usb
+[    2.437206] mc: Linux media interface: v0.10
+[    2.441330] videodev: Linux video capture interface: v2.00
+[    2.446824] EDAC MC: Ver: 3.0.0
+[    2.450266] zynqmp-ipi-mbox mailbox@ff990400: Registered ZynqMP IPI mbox with TX/RX channels.
+[    2.458658] jesd204: found 0 devices and 0 topologies
+[    2.463398] FPGA manager framework
+[    2.466866] Advanced Linux Sound Architecture Driver Initialized.
+[    2.473192] Bluetooth: Core ver 2.22
+[    2.476354] NET: Registered protocol family 31
+[    2.480755] Bluetooth: HCI device and connection manager initialized
+[    2.487073] Bluetooth: HCI socket layer initialized
+[    2.491914] Bluetooth: L2CAP socket layer initialized
+[    2.496938] Bluetooth: SCO socket layer initialized
+[    2.502106] clocksource: Switched to clocksource arch_sys_counter
+[    2.507976] VFS: Disk quotas dquot_6.6.0
+[    2.511768] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    2.522719] NET: Registered protocol family 2
+[    2.523244] tcp_listen_portaddr_hash hash table entries: 1024 (order: 2, 16384 bytes, linear)
+[    2.531386] TCP established hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    2.539332] TCP bind hash table entries: 16384 (order: 6, 262144 bytes, linear)
+[    2.546694] TCP: Hash tables configured (established 16384 bind 16384)
+[    2.553054] UDP hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    2.559683] UDP-Lite hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    2.566855] NET: Registered protocol family 1
+[    2.571385] RPC: Registered named UNIX socket transport module.
+[    2.576953] RPC: Registered udp transport module.
+[    2.581616] RPC: Registered tcp transport module.
+[    2.586285] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    2.593295] PCI: CLS 0 bytes, default 64
+[    2.596696] Trying to unpack rootfs image as initramfs...
+[    4.802066] Freeing initrd memory: 44028K
+[    4.802682] hw perfevents: no interrupt-affinity property for /pmu, guessing.
+[    4.807768] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    4.816113] Initialise system trusted keyrings
+[    4.819796] workingset: timestamp_bits=46 max_order=19 bucket_order=0
+[    4.826771] NFS: Registering the id_resolver key type
+[    4.831085] Key type id_resolver registered
+[    4.835226] Key type id_legacy registered
+[    4.839222] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    4.845882] jffs2: version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
+[    4.853081] fuse: init (API version 7.32)
+[    4.892966] NET: Registered protocol family 38
+[    4.893009] xor: measuring software checksum speed
+[    4.900697]    8regs           :  2363 MB/sec
+[    4.904364]    32regs          :  2799 MB/sec
+[    4.909307]    arm64_neon      :  2380 MB/sec
+[    4.909497] xor: using function: 32regs (2799 MB/sec)
+[    4.914523] Key type asymmetric registered
+[    4.918584] Asymmetric key parser 'x509' registered
+[    4.923447] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    4.930782] io scheduler mq-deadline registered
+[    4.935279] io scheduler kyber registered
+[    4.966295] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    4.970350] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    4.977693] brd: module loaded
+[    4.982326] loop: module loaded
+[    4.982615] Registered mathworks_ip class
+[    4.985853] libphy: Fixed MDIO Bus: probed
+[    4.988948] tun: Universal TUN/TAP device driver, 1.6
+[    4.992978] CAN device driver interface
+[    4.997400] usbcore: registered new interface driver asix
+[    5.002121] usbcore: registered new interface driver ax88179_178a
+[    5.008143] usbcore: registered new interface driver cdc_ether
+[    5.013936] usbcore: registered new interface driver net1080
+[    5.019561] usbcore: registered new interface driver cdc_subset
+[    5.025442] usbcore: registered new interface driver zaurus
+[    5.030988] usbcore: registered new interface driver cdc_ncm
+[    5.037284] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    5.043069] ehci-pci: EHCI PCI platform driver
+[    5.047835] usbcore: registered new interface driver uas
+[    5.052793] usbcore: registered new interface driver usb-storage
+[    5.058779] usbcore: registered new interface driver usbserial_generic
+[    5.065228] usbserial: USB Serial support registered for generic
+[    5.071199] usbcore: registered new interface driver ftdi_sio
+[    5.076899] usbserial: USB Serial support registered for FTDI USB Serial Device
+[    5.084174] usbcore: registered new interface driver upd78f0730
+[    5.090049] usbserial: USB Serial support registered for upd78f0730
+[    5.097613] rtc_zynqmp ffa60000.rtc: registered as rtc0
+[    5.101476] rtc_zynqmp ffa60000.rtc: setting system clock to 2027-03-27T08:29:50 UTC (1806136190)
+[    5.110327] i2c /dev entries driver
+[    5.115415] usbcore: registered new interface driver uvcvideo
+[    5.119448] USB Video Class driver (1.1.1)
+[    5.124439] Bluetooth: HCI UART driver ver 2.3
+[    5.127927] Bluetooth: HCI UART protocol H4 registered
+[    5.133028] Bluetooth: HCI UART protocol BCSP registered
+[    5.138319] Bluetooth: HCI UART protocol LL registered
+[    5.143408] Bluetooth: HCI UART protocol ATH3K registered
+[    5.148783] Bluetooth: HCI UART protocol Three-wire (H5) registered
+[    5.155033] Bluetooth: HCI UART protocol Intel registered
+[    5.160374] Bluetooth: HCI UART protocol QCA registered
+[    5.165578] usbcore: registered new interface driver bcm203x
+[    5.171198] usbcore: registered new interface driver bpa10x
+[    5.176733] usbcore: registered new interface driver bfusb
+[    5.182186] usbcore: registered new interface driver btusb
+[    5.187647] usbcore: registered new interface driver ath3k
+[    5.193138] EDAC MC: ECC not enabled
+[    5.196751] EDAC DEVICE0: Giving out device to module zynqmp-ocm-edac controller zynqmp_ocm: DEV ff960000.memory-controller (INTERRUPT)
+[    5.209037] sdhci: Secure Digital Host Controller Interface driver
+[    5.214862] sdhci: Copyright(c) Pierre Ossman
+[    5.219183] sdhci-pltfm: SDHCI platform and OF driver helper
+[    5.225144] ledtrig-cpu: registered to indicate activity on CPUs
+[    5.230785] SMCCC: SOC_ID: ARCH_SOC_ID not implemented, skipping ....
+[    5.237213] zynqmp_firmware_probe Platform Management API v1.1
+[    5.242972] zynqmp_firmware_probe Trustzone version v1.0
+[    5.301266] zynqmp-aes firmware:zynqmp-firmware:zynqmp-aes: will run requests pump with realtime priority
+[    5.321177] alg: No test for xilinx-keccak-384 (zynqmp-keccak-384)
+[    5.321907] alg: No test for xilinx-zynqmp-rsa (zynqmp-rsa)
+[    5.327414] usbcore: registered new interface driver usbhid
+[    5.332794] usbhid: USB HID core driver
+[    5.343169] axi_sysid 85000000.axi-sysid-0: AXI System ID core version (1.01.a) found
+[    5.345507] axi_sysid 85000000.axi-sysid-0: system ID header version mismatch. Expected 2, Reported 0
+[    5.354548] axi_sysid: probe of 85000000.axi-sysid-0 failed with error -14
+[    5.361803] fpga_manager fpga0: Xilinx ZynqMP FPGA Manager registered
+[    5.368238] usbcore: registered new interface driver snd-usb-audio
+[    5.375554] pktgen: Packet Generator for packet performance testing. Version: 2.75
+[    5.382053] Initializing XFRM netlink socket
+[    5.385734] NET: Registered protocol family 10
+[    5.390513] Segment Routing with IPv6
+[    5.393851] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    5.399943] NET: Registered protocol family 17
+[    5.404011] NET: Registered protocol family 15
+[    5.408485] can: controller area network core
+[    5.412764] NET: Registered protocol family 29
+[    5.417153] can: raw protocol
+[    5.420089] can: broadcast manager protocol
+[    5.424242] can: netlink gateway - max_hops=1
+[    5.428643] Bluetooth: RFCOMM TTY layer initialized
+[    5.433419] Bluetooth: RFCOMM socket layer initialized
+[    5.438524] Bluetooth: RFCOMM ver 1.11
+[    5.442236] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    5.447506] Bluetooth: BNEP filters: protocol multicast
+[    5.452699] Bluetooth: BNEP socket layer initialized
+[    5.457626] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    5.463510] Bluetooth: HIDP socket layer initialized
+[    5.468570] 9pnet: Installing 9P2000 support
+[    5.472705] NET: Registered protocol family 36
+[    5.477106] Key type dns_resolver registered
+[    5.481515] registered taskstats version 1
+[    5.485401] Loading compiled-in X.509 certificates
+[    5.490539] Btrfs loaded, crc32c=crc32c-generic
+[    5.503647] ff010000.serial: ttyPS0 at MMIO 0xff010000 (irq = 50, base_baud = 6250000) is a xuartps
+[    5.512670] printk: console [ttyPS0] enabled
+[    5.512670] printk: console [ttyPS0] enabled
+[    5.516966] printk: bootconsole [cdns0] disabled
+[    5.516966] printk: bootconsole [cdns0] disabled
+[    5.526287] of-fpga-region fpga-full: FPGA Region probed
+[    5.537308] xilinx-zynqmp-dma fd500000.dma: ZynqMP DMA driver Probe success
+[    5.544496] xilinx-zynqmp-dma fd510000.dma: ZynqMP DMA driver Probe success
+[    5.551674] xilinx-zynqmp-dma fd520000.dma: ZynqMP DMA driver Probe success
+[    5.558864] xilinx-zynqmp-dma fd530000.dma: ZynqMP DMA driver Probe success
+[    5.566037] xilinx-zynqmp-dma fd540000.dma: ZynqMP DMA driver Probe success
+[    5.573205] xilinx-zynqmp-dma fd550000.dma: ZynqMP DMA driver Probe success
+[    5.580379] xilinx-zynqmp-dma fd560000.dma: ZynqMP DMA driver Probe success
+[    5.587554] xilinx-zynqmp-dma fd570000.dma: ZynqMP DMA driver Probe success
+[    5.594804] xilinx-zynqmp-dma ffa80000.dma: ZynqMP DMA driver Probe success
+[    5.601987] xilinx-zynqmp-dma ffa90000.dma: ZynqMP DMA driver Probe success
+[    5.609164] xilinx-zynqmp-dma ffaa0000.dma: ZynqMP DMA driver Probe success
+[    5.616342] xilinx-zynqmp-dma ffab0000.dma: ZynqMP DMA driver Probe success
+[    5.623517] xilinx-zynqmp-dma ffac0000.dma: ZynqMP DMA driver Probe success
+[    5.630699] xilinx-zynqmp-dma ffad0000.dma: ZynqMP DMA driver Probe success
+[    5.637870] xilinx-zynqmp-dma ffae0000.dma: ZynqMP DMA driver Probe success
+[    5.645043] xilinx-zynqmp-dma ffaf0000.dma: ZynqMP DMA driver Probe success
+[    5.652366] zynqmp_pll_disable() clock disable failed for rpll_int, ret = -13
+[    5.660043] adrv9001.c : function : adrv9002_probe: Line: 4701 => IN
+[    5.660046] adrv9002_probe : 4619
+[    5.666422] adrv9001.c : function : adrv9002_profile_load: Line: 4492 => IN
+[    5.673040] adrv9001.c : function : adrv9002_profile_load: Line: 4509 => OUT
+[    5.680024] adrv9001.c : function : adrv9002_parse_dt: Line: 4062 => IN
+[    5.687078] adrv9001.c : function : adrv9002_parse_rx_dt: Line: 4006 => IN
+[    5.693683] adrv9001.c : function : adrv9002_parse_rx_agc_dt: Line: 3922 => IN
+[    5.700550] adrv9001.c : function : adrv9002_set_agc_defaults: Line: 3890 => IN
+[    5.707762] adrv9001.c : function : adrv9002_set_agc_defaults: Line: 3904 => OUT
+[    5.715061] adrv9001.c : function : adrv9002_parse_rx_pinctl_dt: Line: 3729 => IN
+[    5.722449] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3170 => IN
+[    5.729923] adrv9001.c : adrv9002_get_arm_clk: Line: 3173,sys clock 48*10
+[    5.736788] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3178 => OUT
+[    5.743584] adrv9001.c : function : adrv9002_parse_rx_dt: Line: 4053 => OUT
+[    5.750540] adrv9001.c : function : adrv9002_parse_rx_dt: Line: 4006 => IN
+[    5.757489] adrv9001.c : function : adrv9002_parse_rx_agc_dt: Line: 3922 => IN
+[    5.764359] adrv9001.c : function : adrv9002_set_agc_defaults: Line: 3890 => IN
+[    5.771571] adrv9001.c : function : adrv9002_set_agc_defaults: Line: 3904 => OUT
+[    5.778867] adrv9001.c : function : adrv9002_parse_rx_pinctl_dt: Line: 3729 => IN
+[    5.786254] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3170 => IN
+[    5.793728] adrv9001.c : adrv9002_get_arm_clk: Line: 3173,sys clock 48*10
+[    5.800594] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3178 => OUT
+[    5.807386] adrv9001.c : function : adrv9002_parse_rx_dt: Line: 4053 => OUT
+[    5.814341] adrv9001.c : function : adrv9002_parse_tx_dt: Line: 3711 => IN
+[    5.821295] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3170 => IN
+[    5.828161] adrv9001.c : adrv9002_get_arm_clk: Line: 3173,sys clock 48*10
+[    5.835026] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3178 => OUT
+[    5.841807] adrv9001.c : function : adrv9002_parse_tx_dt: Line: 3719 => OUT
+[    5.848759] adrv9001.c : function : adrv9002_parse_tx_pin_dt: Line: 3673 => IN
+[    5.855714] adrv9001.c : function : adrv9002_parse_tx_dt: Line: 3711 => IN
+[    5.862925] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3170 => IN
+[    5.869790] adrv9001.c : adrv9002_get_arm_clk: Line: 3173,sys clock 48*10
+[    5.876655] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3178 => OUT
+[    5.883435] adrv9001.c : function : adrv9002_parse_tx_dt: Line: 3719 => OUT
+[    5.890387] adrv9001.c : function : adrv9002_parse_tx_pin_dt: Line: 3673 => IN
+[    5.897349] adrv9001.c : function : adrv9002_parse_fh_dt: Line: 3486 => IN
+[    5.904575] adrv9001.c : function : adrv9002_fh_parse_table_control: Line: 3337 => IN
+[    5.911439] adrv9001.c : function : adrv9002_fh_parse_gpio_gain_control: Line: 3434 => IN
+[    5.919259] adrv9001.c : function : adrv9002_parse_fh_dt: Line: 3599 => OUT
+[    5.927431] adrv9001.c : function : adrv9002_parse_dt: Line: 4201 => OUT
+[    5.934387] probe function exit : 4681
+[    5.941082] adrv9001.c : function : adrv9002_probe: Line: 4765 =>IN
+[    5.952530] spi-nor spi0.0: SPI-NOR-UniqueID 1044003eda0b00140d002100014e813efb
+[    5.960422] spi-nor spi0.0: trying to lock already unlocked area
+[    5.966424] spi-nor spi0.0: mt25qu02g (262144 Kbytes)
+[    5.972756] macb ff0d0000.ethernet: Not enabling partial store and forward
+[    5.985187] libphy: MACB_mii_bus: probed
+[    5.989160] macb ff0d0000.ethernet eth0: Cadence GEM rev 0x50070106 at 0xff0d0000 irq 38 (e6:9d:69:c4:d2:5b)
+[    5.999467] xilinx-axipmon ffa00000.perf-monitor: Probed Xilinx APM
+[    6.006055] xilinx-axipmon fd0b0000.perf-monitor: Probed Xilinx APM
+[    6.012605] xilinx-axipmon fd490000.perf-monitor: Probed Xilinx APM
+[    6.019136] xilinx-axipmon ffa10000.perf-monitor: Probed Xilinx APM
+[    6.025970] cdns-i2c ff020000.i2c: 400 kHz mmio ff020000 irq 40
+[    6.032402] i2c i2c-1: of_i2c: modalias failure on /axi/i2c@ff030000/i2c-mux@75
+[    6.039715] i2c i2c-1: Failed to create I2C device for /axi/i2c@ff030000/i2c-mux@75
+[    6.047391] cdns-i2c ff030000.i2c: 400 kHz mmio ff030000 irq 41
+[    6.053765] cpu cpu0: dev_pm_opp_set_rate: failed to find current OPP for freq 1200000000 (-34)
+[    6.062506] cpufreq: cpufreq_online: CPU0: Running at unlisted initial frequency: 1200000 KHz, changing to: 1199999 KHz
+[    6.073295] cpu cpu0: dev_pm_opp_set_rate: failed to find current OPP for freq 1200000000 (-34)
+[    6.102511] adrv9001.c : function : adrv9002_post_init: Line: 4573 => IN
+[    6.102514] adrv9001.c : adrv9002_clk_register : IN : 323
+[    6.109214] adrv9001.c : adrv9002_clk_set_dev_name : IN : 269
+[    6.114602] adrv9001.c : adrv9002_clk_set_dev_name : OUT : 279
+[    6.120414] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[    6.126244] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[    6.131981] adrv9001.c : adrv9002_clk_register : out : 348
+[    6.137632] adrv9001.c : adrv9002_clk_register : IN : 323
+[    6.143106] adrv9001.c : adrv9002_clk_set_dev_name : IN : 269
+[    6.148495] adrv9001.c : adrv9002_clk_set_dev_name : OUT : 279
+[    6.154249] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[    6.160076] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[    6.165803] adrv9001.c : adrv9002_clk_register : out : 348
+[    6.171455] adrv9001.c : adrv9002_clk_register : IN : 323
+[    6.176932] adrv9001.c : adrv9002_clk_set_dev_name : IN : 269
+[    6.182322] adrv9001.c : adrv9002_clk_set_dev_name : OUT : 279
+[    6.188074] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[    6.193901] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[    6.199629] adrv9001.c : adrv9002_clk_register : out : 348
+[    6.205281] adrv9001.c : adrv9002_clk_register : IN : 323
+[    6.210757] adrv9001.c : adrv9002_clk_set_dev_name : IN : 269
+[    6.216148] adrv9001.c : adrv9002_clk_set_dev_name : OUT : 279
+[    6.221902] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[    6.227726] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[    6.233459] adrv9001.c : adrv9002_clk_register : out : 348
+[    6.239109] adrv9001.c : adrv9002_clk_register : IN : 323
+[    6.244582] adrv9001.c : adrv9002_clk_set_dev_name : IN : 269
+[    6.249974] adrv9001.c : adrv9002_clk_set_dev_name : OUT : 279
+[    6.255727] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[    6.261552] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[    6.267282] adrv9001.c : adrv9002_clk_register : out : 348
+[    6.272934] adrv9001.c : adrv9002_clk_register : IN : 323
+[    6.278410] adrv9001.c : adrv9002_clk_set_dev_name : IN : 269
+[    6.283800] adrv9001.c : adrv9002_clk_set_dev_name : OUT : 279
+[    6.289554] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[    6.295380] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[    6.301107] adrv9001.c : adrv9002_clk_register : out : 348
+[    6.306760] adrv9001.c : function : adrv9002_profile_load: Line: 4492 => IN
+[    6.315523] adrv9001.c : function : adrv9002_profile_load: Line: 4509 => OUT
+[    6.322481] adrv9001.c : function : adrv9002_cleanup: Line: 3151 => IN
+[    6.329522] adrv9001.c : function : adrv9002_cleanup: Line: 3163 => OUT
+[    6.336038] adrv9001.c : function : adrv9002_init: Line: 4211 => IN
+[    6.342644] adrv9001.c : function : adrv9002_setup: Line: 2845 => IN
+[    6.356329] MESSAGE: ADRV9001_SPIWRITEBYTE:         SPI_INTERFACE_CONFIG_B: addr=0x0001, data=0x80
+[    6.365397] MESSAGE: ADRV9001_SPIWRITEBYTE:         SPI_INTERFACE_CONFIG_A: addr=0x0000, data=0x3c
+[    6.374478] MESSAGE:ADRV9001_SPIREADBYTE:                    VENDOR_ID_0: addr=0x000b, data=0x56
+[    6.383380] MESSAGE:ADRV9001_SPIREADBYTE:                    VENDOR_ID_1: addr=0x000c, data=0x04
+[    6.392275] MESSAGE: ADRV9001_SPIWRITEBYTE:                    SCRATCH_PAD: addr=0x0009, data=0xb6
+[    6.401345] MESSAGE:ADRV9001_SPIREADBYTE:                    SCRATCH_PAD: addr=0x0009, data=0xb6
+[    6.410252] MESSAGE: ADRV9001_SPIWRITEBYTE:                    SCRATCH_PAD: addr=0x0009, data=0x49
+[    6.419320] MESSAGE:ADRV9001_SPIREADBYTE:                    SCRATCH_PAD: addr=0x0009, data=0x49
+[    6.428220] MESSAGE:ADRV9001_SPIREADBYTE: SCRATCH_PAD_READ_ONLY_UPPER_ADDR: addr=0x01fc, data=0xa5
+[    6.437289] MESSAGE: ADRV9001_SPIWRITEBYTE:         SCRATCH_PAD_UPPER_ADDR: addr=0x01fb, data=0xb6
+[    6.446357] MESSAGE:ADRV9001_SPIREADBYTE:         SCRATCH_PAD_UPPER_ADDR: addr=0x01fb, data=0xb6
+[    6.455257] MESSAGE: ADRV9001_SPIWRITEBYTE:         SCRATCH_PAD_UPPER_ADDR: addr=0x01fb, data=0x49
+[    6.464327] MESSAGE:ADRV9001_SPIREADBYTE:         SCRATCH_PAD_UPPER_ADDR: addr=0x01fb, data=0x49
+[    6.473193] adrv9001.c : function : adrv9002_validate_profile: Line: 2491 => IN
+[    6.473197] adrv9001.c : function : adrv9002_validate_profile: Line: 2618 => OUT
+[    6.480502] adrv9001.c : function : adrv9002_compute_init_cals: Line: 2452 =>IN
+[    6.487885] adrv9001.c : function : adrv9002_compute_init_cals: Line: 2474 =>OUT
+[    6.495187] adrv9001_InitAnalog_Validate: 377
+[    6.506950] MESSAGE: ADRV9001_SPIWRITEBYTE:            MASTERBIAS_CONFIG_0: addr=0x01b4, data=0x00
+[    6.516025] MESSAGE: ADRV9001_SPIWRITEBYTE:              ANALOG_CONTROL_18: addr=0x01c9, data=0x05
+[    6.525094] MESSAGE: ADRV9001_SPIWRITEBYTE:           DEVICE_CLK_CONTROL_1: addr=0x01e0, data=0x12
+[    6.534136] adrv9001_ProfilesVerify : 628
+[    6.534140] adrv9001_VerifyRxProfile : 524
+[    6.538144] adrv9001_VerifyRxProfile : 524
+[    6.542231] adrv9001_VerifyTxProfile : 488
+[    6.546319] adrv9001_VerifyLbProfile : 596
+[    6.550407] adrv9001_VerifyTxProfile : 488
+[    6.554494] adrv9001_VerifyLbProfile : 596
+[    6.558585] adrv9001_InitAnalog : 400
+[    6.566515] MESSAGE: ADRV9001_SPIWRITEBYTE:        REF_CLK_GEN_OUT_CLKS_PD: addr=0x01ca, data=0x1b
+[    6.575587] MESSAGE: ADRV9001_SPIWRITEBYTE:             REF_CLK_PAD_CONFIG: addr=0x0076, data=0x00
+[    6.584658] MESSAGE: ADRV9001_SPIWRITEBYTE:                   BBIC_ENABLES: addr=0x0162, data=0x00
+[    6.593697] adrv9001.c : function : adrv9002_digital_init: Line: 2655 => IN
+[    6.600687] MESSAGE:ADRV9001_SPIREADBYTE:                 AHB_SPI_BRIDGE: addr=0x00d2, data=0x0e
+[    6.609590] MESSAGE: ADRV9001_SPIWRITEBYTE:                 AHB_SPI_BRIDGE: addr=0x00d2, data=0x0f
+[    6.618665] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0116, data=0xf1
+[    6.669826] random: fast init done
+[    6.766168] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE0: addr=0x0117, data=0x38
+[    6.775237] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE1: addr=0x0118, data=0x40
+[    6.784307] MESSAGE: ADRV9001_SPIWRITEBYTE:             LAST_STREAM_NUMBER: addr=0x0119, data=0x3f
+[    6.793377] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0116, data=0xf0
+[    6.802451] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x023c, data=0xc1
+[    6.845395] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE0: addr=0x023d, data=0x10
+[    6.854475] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE1: addr=0x023e, data=0x00
+[    6.863549] MESSAGE: ADRV9001_SPIWRITEBYTE:             LAST_STREAM_NUMBER: addr=0x023f, data=0x3f
+[    6.872616] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x023c, data=0xc0
+[    6.881690] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0254, data=0xc1
+[    6.924616] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE0: addr=0x0255, data=0x10
+[    6.933689] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE1: addr=0x0256, data=0x00
+[    6.942759] MESSAGE: ADRV9001_SPIWRITEBYTE:             LAST_STREAM_NUMBER: addr=0x0257, data=0x3f
+[    6.951844] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0254, data=0xc0
+[    6.960921] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x026c, data=0xc1
+[    7.003833] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE0: addr=0x026d, data=0x10
+[    7.012903] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE1: addr=0x026e, data=0x00
+[    7.021974] MESSAGE: ADRV9001_SPIWRITEBYTE:             LAST_STREAM_NUMBER: addr=0x026f, data=0x3f
+[    7.031043] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x026c, data=0xc0
+[    7.040118] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0284, data=0xc1
+[    7.083048] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE0: addr=0x0285, data=0x10
+[    7.092117] MESSAGE: ADRV9001_SPIWRITEBYTE:              STREAM_BASE_BYTE1: addr=0x0286, data=0x00
+[    7.101186] MESSAGE: ADRV9001_SPIWRITEBYTE:             LAST_STREAM_NUMBER: addr=0x0287, data=0x3f
+[    7.110268] MESSAGE: ADRV9001_SPIWRITEBYTE:                     STREAM_CTL: addr=0x0284, data=0xc0
+[    7.119342] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_BOOT_ADDR_BYTE_0: addr=0x00d3, data=0x2d
+[    7.128417] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_BOOT_ADDR_BYTE_1: addr=0x00d4, data=0x5c
+[    7.137487] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_BOOT_ADDR_BYTE_2: addr=0x00d5, data=0x04
+[    7.146556] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_BOOT_ADDR_BYTE_3: addr=0x00d6, data=0x01
+[    7.155628] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_STACK_PTR_BYTE_0: addr=0x00d7, data=0x60
+[    7.164699] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_STACK_PTR_BYTE_1: addr=0x00d8, data=0x1d
+[    7.173769] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_STACK_PTR_BYTE_2: addr=0x00d9, data=0x01
+[    7.182840] MESSAGE: ADRV9001_SPIWRITEBYTE:           ARM_STACK_PTR_BYTE_3: addr=0x00da, data=0x20
+[    9.645700] random: crng init done
+[    9.898835] MESSAGE: ADRV9001_SPIWRITEBYTE:          RX1_DEC_POWR_CONFIG_1: addr=0x1012, data=0x09
+[    9.907909] MESSAGE: ADRV9001_SPIWRITEBYTE:       RX1_DIGITAL_GAIN_CONFIG2: addr=0x0f67, data=0x01
+[    9.933300] MESSAGE: ADRV9001_SPIWRITEBYTE:          RX1_DEC_POWR_CONFIG_1: addr=0x1012, data=0x09
+[    9.942369] MESSAGE: ADRV9001_SPIWRITEBYTE:       RX1_DIGITAL_GAIN_CONFIG2: addr=0x0f67, data=0x01
+[    9.955219] MESSAGE: ADRV9001_SPIWRITEBYTE:          RX2_DEC_POWR_CONFIG_1: addr=0x1412, data=0x09
+[    9.964295] MESSAGE: ADRV9001_SPIWRITEBYTE:       RX2_DIGITAL_GAIN_CONFIG2: addr=0x1367, data=0x01
+[    9.990269] MESSAGE: ADRV9001_SPIWRITEBYTE:          RX2_DEC_POWR_CONFIG_1: addr=0x1412, data=0x09
+[    9.999341] MESSAGE: ADRV9001_SPIWRITEBYTE:       RX2_DIGITAL_GAIN_CONFIG2: addr=0x1367, data=0x01
+[   10.276068] adrv9001.c : function : adrv9002_power_mgmt_config: Line: 2625 => IN
+[   10.276071] adi_adrv9001_powermanagement_Configuread:79
+[   10.283462] function adi_adrv9001_powermanagement_Configure_Validate:27
+[   10.296385] wrData 222
+[   10.298738] wrData 173
+[   10.301081] wrData 190
+[   10.303431] wrData 239
+[   10.305776] rdData 222
+[   10.308125] rdData 173
+[   10.310478] rdData 190
+[   10.312825] rdData 239
+[   10.315173] ReadPattern1 -272716322
+[   10.318657] fixedPattern1 -272716322
+[   10.322223] pwermangment value 0
+[   10.322225] pwermangment value 0
+[   10.325437] pwermangment value 0
+[   10.328654] pwermangment value 0
+[   10.331874] pwermangment value 0
+[   10.335094] pwermangment value 0
+[   10.338315] pwermangment value 0
+[   10.341529] pwermangment value 0
+[   10.344746] pwermangment value 0
+[   10.347967] pwermangment value 0
+[   10.351187] pwermangment value 0
+[   10.354407] pwermangment value 0
+[   10.357622] pwermangment value 0
+[   10.360839] pwermangment value 0
+[   10.364059] pwermangment value 0
+[   10.367279] pwermangment value 0
+[   10.370499] pwermangment value 0
+[   10.373715] pwermangment value 0
+[   10.376932] pwermangment value 0
+[   10.384023] powerMangementPrint is 0
+[   10.384025] powerMangementPrint is 0
+[   10.387594] powerMangementPrint is 0
+[   10.391159] powerMangementPrint is 0
+[   10.394726] powerMangementPrint is 0
+[   10.398297] powerMangementPrint is 0
+[   10.401855] powerMangementPrint is 0
+[   10.405420] powerMangementPrint is 0
+[   10.408988] powerMangementPrint is 0
+[   10.412554] powerMangementPrint is 0
+[   10.416122] powerMangementPrint is 0
+[   10.419689] powerMangementPrint is 0
+[   10.423257] powerMangementPrint is 0
+[   10.426824] powerMangementPrint is 0
+[   10.430391] powerMangementPrint is 0
+[   10.433954] powerMangementPrint is 0
+[   10.437518] powerMangementPrint is 0
+[   10.441084] powerMangementPrint is 0
+[   10.444654] powerMangementPrint is 0
+[   10.448220] function adi_adrv9001_powermanagement_Configure_Validate:91
+[   10.459735] adrv9001.c : function : adrv9002_power_mgmt_config: Line: 2642 => OUT
+[   10.467766] MESSAGE: ADRV9001_SPIWRITEBYTE:                      ARM_CTL_1: addr=0x00cf, data=0x89
+[   10.476841] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x00
+[   10.485734] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.594655] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x00
+[   10.603567] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.712484] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   10.721384] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.730249] adrv9001.c : function : adrv9002_digital_init: Line: 2751 => OUT
+[   10.730252] adrv9001.c : function : adrv9002_radio_init: Line: 2772 => IN
+[   10.744665] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   10.753741] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x8b
+[   10.762811] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x00
+[   10.771882] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.780956] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.790416] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   10.799484] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x8b
+[   10.808551] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x01
+[   10.817625] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.826698] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.836147] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   10.845218] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x8b
+[   10.854289] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x02
+[   10.863359] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.872440] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.881369] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x01
+[   10.890439] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   10.899512] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   10.908585] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   10.918520] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   10.928302] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x01
+[   10.937374] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   10.946441] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   10.955523] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   10.964393] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3170 => IN
+[   10.964396] adrv9001.c : adrv9002_get_arm_clk: Line: 3173,sys clock 48*10
+[   10.971262] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3178 => OUT
+[   10.985054] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   10.994129] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   11.003210] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x1a
+[   11.012281] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   11.021353] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   11.030853] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   11.040766] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x01
+[   11.049832] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x9c
+[   11.058903] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   11.067976] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   11.076904] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x04
+[   11.085976] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   11.095049] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   11.104119] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   11.114126] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   11.123907] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x04
+[   11.132986] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   11.142056] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   11.151131] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   11.159994] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3170 => IN
+[   11.159997] adrv9001.c : adrv9002_get_arm_clk: Line: 3173,sys clock 48*10
+[   11.166865] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3178 => OUT
+[   11.180659] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   11.189728] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   11.198798] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x18
+[   11.207870] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   11.216943] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   11.226425] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   11.236343] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x04
+[   11.245411] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x9c
+[   11.254481] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   11.263561] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   11.272489] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x02
+[   11.281563] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   11.290632] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   11.299707] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   11.309708] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   11.319517] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x02
+[   11.328590] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   11.337662] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   11.346737] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   11.355606] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3170 => IN
+[   11.355609] adrv9001.c : adrv9002_get_arm_clk: Line: 3173,sys clock 48*10
+[   11.362478] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3178 => OUT
+[   11.376271] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   11.385341] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   11.394418] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x1b
+[   11.403489] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   11.412562] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   11.422049] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   11.431965] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x02
+[   11.441040] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x9c
+[   11.450121] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   11.459193] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   11.468120] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x08
+[   11.477192] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   11.486263] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   11.495335] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   11.505335] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   11.515136] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x08
+[   11.524211] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x83
+[   11.533281] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   11.542355] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   11.551218] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3170 => IN
+[   11.551221] adrv9001.c : adrv9002_get_arm_clk: Line: 3173,sys clock 48*10
+[   11.558093] adrv9001.c : function : adrv9002_get_arm_clk: Line: 3178 => OUT
+[   11.571889] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   11.580964] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   11.590032] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x19
+[   11.599102] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   11.608176] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   11.617685] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x00
+[   11.627601] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x08
+[   11.636670] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x9c
+[   11.645741] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   11.654820] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   11.663747] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0xcf
+[   11.672818] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x93
+[   11.681893] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   11.690966] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   11.700426] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   11.709497] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x8f
+[   11.718567] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0xb2
+[   11.727636] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0104, data=0x00
+[   11.736706] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0105, data=0x00
+[   11.745777] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0c
+[   11.754850] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0109, data=0x00
+[   11.770246] adrv9001.c : function : adrv9002_radio_init: Line: 2827 => OUT
+[   11.770250] adrv9001.c : function : adrv9002_tx_set_dac_full_scale: Line: 2364 =>IN
+[   11.777116] adrv9001.c : function : adrv9002_tx_set_dac_full_scale: Line: 2377 =>OUT
+[   11.793335] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   11.802406] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x00
+[   11.811476] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x00
+[   11.820547] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x02
+[   11.829618] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.839535] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.849453] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.859366] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.869278] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.879191] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.889103] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.899020] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.908937] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.918850] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.928764] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.938674] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.948595] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.958511] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.968433] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.978350] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.988264] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   11.998177] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.008089] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.018002] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.027914] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.037825] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.047738] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.057653] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.067565] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.077477] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.087387] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.097302] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.107217] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.117136] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.127052] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.136970] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.146883] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.156794] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.166708] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.176621] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.186534] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.196446] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.206356] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.216272] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.226193] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.236104] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.246015] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.255932] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.265850] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.275763] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.285676] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.295588] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.305501] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.315413] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.325328] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.335248] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.345160] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.355071] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.364985] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.374897] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.384812] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.394732] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.404643] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.414557] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.424465] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.434386] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.444304] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.454216] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.464127] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.474040] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.483953] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.493865] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.503778] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.513693] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.523612] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.533520] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.543439] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.553349] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.563262] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.573177] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.583096] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.593008] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.602919] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.612833] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.622746] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.632658] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.642573] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.652486] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.662405] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.672318] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.682230] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.692143] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.702056] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.711968] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.721880] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.731794] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.741705] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.751614] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.761533] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.771454] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.781373] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.791284] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.801198] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.811111] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.821023] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.830938] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.840849] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.850761] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.860669] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.870590] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.880507] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.890421] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.900335] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.910255] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.920166] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.930078] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.939994] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.949913] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.959827] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.969734] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.979654] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.989572] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   12.999484] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.009396] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.019310] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.029224] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.039143] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.049056] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.058969] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.068882] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.078792] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.088711] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.098628] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.108540] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.118451] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.128365] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.138278] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.148190] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.158110] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.168025] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.177936] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.187846] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.197764] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.207683] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.217596] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.227508] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.237420] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.247330] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.257245] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.267158] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.277070] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.286983] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.296895] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.306812] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.316730] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.326642] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.336554] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.346470] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.356388] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.366302] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.376213] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.386133] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.396048] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.405956] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.415876] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.425797] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.435715] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.445628] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.455541] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.465453] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.475366] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.485278] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.495190] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.505103] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.515014] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.524930] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.534850] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.544762] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.554675] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.564587] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.574500] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.584412] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.594325] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.604240] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.614160] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.624067] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.633985] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.643896] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.653808] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.663718] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.673634] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.683549] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.693468] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.703381] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.713292] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.723205] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.733119] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.743033] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.752952] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.762864] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.772777] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.782691] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.792601] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.802514] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.812428] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.822340] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.832252] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.842165] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.852078] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.861991] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.871903] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.881815] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.891724] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.901640] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.911552] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.921465] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.931383] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.941299] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.951214] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.961133] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.971048] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.980966] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   13.990880] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.000792] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.010704] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.020616] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.030529] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.040441] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.050354] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.060270] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.070189] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.080100] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.090012] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.099928] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.109847] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.119762] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.129681] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.139593] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.149506] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.159415] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.169333] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.179252] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.189165] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.199075] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.208990] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.218903] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.228817] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.238738] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.248650] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.258562] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.268470] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.278390] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.288308] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.298222] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.308133] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.318046] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.327958] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.337871] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.347781] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.357698] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.367617] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.377529] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.387444] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.397363] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.407276] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.417188] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.427101] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.437013] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.446926] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.456837] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.466752] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.476664] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.486577] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.496491] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.506413] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.516332] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.526245] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.536157] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.546070] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.555981] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.565894] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.575804] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.585719] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.595628] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.605548] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.615468] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.625387] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.635299] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.645212] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.655125] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.665037] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.674951] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.684862] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.694775] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.704683] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.714602] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.724521] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.734435] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.744349] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.754270] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.764181] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.774093] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.784006] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.793918] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.803831] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.813740] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.823658] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.833577] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.843488] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.853402] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.863315] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.873229] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.883154] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.893071] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.902983] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.912894] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.922805] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.932721] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.942633] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.952549] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.962468] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.972379] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.982290] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   14.992203] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.002125] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.012037] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.021951] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.031859] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.041777] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.051686] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.061600] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.071511] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.081425] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.091338] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.101250] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.111162] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.121076] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.130991] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.140906] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.150827] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.160744] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.170656] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.180568] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.190483] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.200393] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.210307] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.220216] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.230137] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.240052] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.249961] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.259881] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.269800] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.279713] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.289624] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.299536] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.309449] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.319362] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.329274] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.339187] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.349099] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.359010] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.368928] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.378846] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.388761] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.398677] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.408593] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.418507] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.428426] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.438337] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.448251] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.458164] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.468071] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.477992] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.487910] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.497822] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.507732] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.517650] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.527569] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.537482] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.547394] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.557306] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.567216] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.577128] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.587048] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.596965] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.606879] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.616790] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.626703] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.636615] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.646531] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.656447] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.666364] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.676282] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.686197] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.696108] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.706022] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.715933] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.725845] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.735756] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.745671] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.755584] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.765496] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.775409] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.785321] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.795239] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.805156] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.815071] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.824989] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.834903] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.844814] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.854727] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.864637] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.874552] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.884463] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.894377] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.904291] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.914204] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.924115] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.934027] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.943947] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.953862] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.963773] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.973686] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.983599] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   15.993510] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.003420] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.013341] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.023258] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.033170] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.043081] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.052997] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.062909] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.072823] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.082739] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.092653] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.102567] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.112476] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.122395] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.132313] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.142227] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.152138] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.162052] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.171963] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.181877] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.191789] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.201704] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.211620] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.221531] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.231449] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.241361] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.251272] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.261185] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.271099] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.281009] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.290923] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.300833] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.310751] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.320669] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.330581] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.340496] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.350417] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.360328] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.370239] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.380153] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.390066] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.399978] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.409891] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.419803] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.429716] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.439629] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.449543] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.459464] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.469383] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.479293] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.489208] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.499121] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.509032] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.518947] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.528858] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.538771] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.548680] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.558599] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.568519] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.578432] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.588345] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.598263] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.608177] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.618089] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.628001] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.637914] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.647825] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.657735] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.667655] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.677573] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.687486] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.697400] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.707311] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.717225] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.727135] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.737048] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.746962] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.756873] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.766785] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.776700] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.786612] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.796524] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.806435] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.816349] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.826265] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.836183] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.846103] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.856016] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.865930] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.875839] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.885756] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.895667] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.905580] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.915489] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.925403] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.935320] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.945239] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.955155] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.965073] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.974988] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.984903] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   16.994821] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.004740] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.014653] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.024565] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.034480] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.044399] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.054312] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.064225] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.074138] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.084050] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.093958] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.103878] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.113796] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x10
+[   17.123708] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0106, data=0x00
+[   17.132571] adrv9001.c : function : adrv9001_rx_path_config: Line: 2321 =>IN
+[   17.132574] adrv9001.c :Line: 2324 , Loop- 0
+[   17.139617] adrv9001.c :pin_cfg : 0
+[   17.143877] Goto agc
+[   17.147444] adrv9001.c :AGC exicuted
+[   17.157523] MESSAGE: ADRV9001_SPIWRITEBYTE:                GPIO_SOURCE_SEL: addr=0x0055, data=0x12
+[   17.166594] MESSAGE: ADRV9001_SPIWRITEBYTE:                GPIO_SOURCE_SEL: addr=0x0055, data=0x13
+[   17.175756] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.184657] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x55
+[   17.193559] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.202456] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x55
+[   17.211404] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x01
+[   17.220471] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x04
+[   17.229546] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0107, data=0x00
+[   17.238452] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.247354] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x56
+[   17.256320] adrv9001.c :Line: 2324 , Loop- 1
+[   17.256323] adrv9001.c :pin_cfg : 0
+[   17.260582] Goto agc
+[   17.264147] adrv9001.c :AGC exicuted
+[   17.274240] MESSAGE: ADRV9001_SPIWRITEBYTE:                GPIO_SOURCE_SEL: addr=0x0055, data=0x16
+[   17.283314] MESSAGE: ADRV9001_SPIWRITEBYTE:                GPIO_SOURCE_SEL: addr=0x0055, data=0x17
+[   17.292472] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.301368] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x57
+[   17.310265] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.319164] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x57
+[   17.328089] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x02
+[   17.337164] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x04
+[   17.346244] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0107, data=0x00
+[   17.355148] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.364047] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x5b
+[   17.373003] adrv9001.c : function : adrv9001_rx_path_config: Line: 2357 =>OUT
+[   17.373006] adrv9001.c : function : adrv9002_tx_path_config: Line: 2385 =>IN
+[   17.387202] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.396102] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x5f
+[   17.405002] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.413896] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x5f
+[   17.422825] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x04
+[   17.431898] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x04
+[   17.440971] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0107, data=0x00
+[   17.449870] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.458772] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x6f
+[   17.467760] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.476669] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x7f
+[   17.485573] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.494473] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0x7f
+[   17.503401] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x08
+[   17.512475] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x04
+[   17.521547] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0107, data=0x00
+[   17.530445] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_8: addr=0x010e, data=0x11
+[   17.539338] MESSAGE:ADRV9001_SPIREADBYTE:               arm_cmd_status_9: addr=0x010f, data=0xbf
+[   17.548293] adrv9001.c : function : adrv9002_tx_path_config: Line: 2410 =>OUT
+[   17.555543] adrv9001.c : function : adrv9002_setup: Line: 2907 => OUT
+[   17.555546] adrv9001.c : function : adrv9002_dgpio_config: Line: 2297 =>IN
+[   17.561979] adrv9001.c : function : adrv9002_dgpio_config: GPIO: 0 =>IN
+[   17.575509] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   17.584579] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   17.593649] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x00
+[   17.602728] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0104, data=0x00
+[   17.611802] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0105, data=0x04
+[   17.620870] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   17.629942] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   17.638809] adrv9001.c : function : adrv9002_dgpio_config: GPIO: 1 =>IN
+[   17.645478] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0101, data=0x00
+[   17.654549] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0102, data=0x80
+[   17.663619] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0103, data=0x01
+[   17.672688] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0104, data=0x01
+[   17.681760] MESSAGE: ADRV9001_SPIWRITEBYTE:            ARM_EXT_CMD_BYTE_1+: addr=0x0105, data=0x04
+[   17.690830] MESSAGE: ADRV9001_SPIWRITEBYTE:                    ARM_COMMAND: addr=0x0100, data=0x0a
+[   17.699904] MESSAGE:ADRV9001_SPIREADBYTE:                               : addr=0x0108, data=0x00
+[   17.708767] adrv9001.c : function : adrv9002_dgpio_config: Line: 2310 =>OUT
+[   17.708770] adrv9001.c : adrv9002_set_clk_rates : IN : 355
+[   17.715728] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.721201] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   17.726679] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.732244] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   17.737725] adrv9001.c : adrv9002_bb_set_rate : IN : 295
+[   17.743283] adrv9001.c : adrv9002_bb_set_rate : OUT : 298
+[   17.748589] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   17.753978] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   17.759543] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.765191] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   17.770669] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.776232] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   17.781710] adrv9001.c : adrv9002_bb_set_rate : IN : 295
+[   17.787274] adrv9001.c : adrv9002_bb_set_rate : OUT : 298
+[   17.792577] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   17.797967] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   17.803532] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.809181] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   17.814659] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.820222] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   17.825700] adrv9001.c : adrv9002_bb_set_rate : IN : 295
+[   17.831263] adrv9001.c : adrv9002_bb_set_rate : OUT : 298
+[   17.836567] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   17.841957] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   17.847522] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.853172] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   17.858653] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.864213] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   17.869690] adrv9001.c : adrv9002_bb_set_rate : IN : 295
+[   17.875254] adrv9001.c : adrv9002_bb_set_rate : OUT : 298
+[   17.880557] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   17.885947] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   17.891512] adrv9001.c : adrv9002_set_clk_rates : OUT : 364
+[   17.897162] adrv9001.c : adrv9002_ssi_configure : IN : 208
+[   17.902726] adrv9001.c : adrv9002_get_ssi_interface : in : 186
+[   17.908203] adrv9001.c : adrv9002_get_ssi_interface : out : 200
+[   17.914030] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.919938] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   17.925416] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.930983] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   17.936457] adrv9001.c : adrv9002_bb_set_rate : IN : 295
+[   17.942020] adrv9001.c : adrv9002_bb_set_rate : OUT : 298
+[   17.947325] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   17.952714] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   17.958278] adrv9001.c : adrv9002_get_ssi_interface : in : 186
+[   17.963928] adrv9001.c : adrv9002_get_ssi_interface : out : 200
+[   17.969754] adrv9001.c : adrv9002_get_ssi_interface : in : 186
+[   17.975664] adrv9001.c : adrv9002_get_ssi_interface : out : 200
+[   17.981490] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.987404] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   17.992877] adrv9001.c : adrv9002_bb_round_rate : IN : 306
+[   17.998440] adrv9001.c : adrv9002_bb_round_rate : OUT : 306
+[   18.003918] adrv9001.c : adrv9002_bb_set_rate : IN : 295
+[   18.009481] adrv9001.c : adrv9002_bb_set_rate : OUT : 298
+[   18.014785] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   18.020175] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   18.025739] adrv9001.c : adrv9002_get_ssi_interface : in : 186
+[   18.031389] adrv9001.c : adrv9002_get_ssi_interface : out : 200
+[   18.037215] adrv9001.c : adrv9002_ssi_configure : out : 236
+[   18.043127] adrv9001.c : function : adrv9002_intf_tuning: Line: 3091 => IN
+[   18.048691] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   18.063020] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.071435] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.076454] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.092336] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.097355] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.113241] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.118260] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.134145] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.139163] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.155023] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.160042] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.175933] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.180951] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.196847] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.201866] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.217747] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.222765] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.238655] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.243674] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.259537] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.264556] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.280444] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.285463] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.301346] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.306364] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.322247] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.327266] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.343154] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.348173] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.364062] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.369081] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.384969] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.389987] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.405868] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.410887] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.426776] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.431795] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.447679] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.452698] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.468581] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.473600] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.489508] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.494526] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.510417] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.515436] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.531323] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.536342] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.552224] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.557243] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.573103] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.578122] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.594016] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.599035] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.614945] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.619964] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.635843] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.640862] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.656746] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.661765] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.677631] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.682650] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.698549] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.703567] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.719450] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.724469] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.740359] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.745378] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.761268] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.766287] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.782161] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.787179] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.803056] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.808074] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.823940] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.828959] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.844822] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.849841] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.865711] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.870730] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.886608] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.891626] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.907499] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.912518] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.928377] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.933396] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.949170] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.954190] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.970070] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.975089] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   18.990956] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   18.995975] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.011864] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.016883] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.032776] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.037795] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.053676] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.058694] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.074588] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.079607] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.095486] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.100504] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.116397] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.121416] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.137299] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.142317] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.158216] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.163235] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.179118] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.184137] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.200021] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.205040] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.220933] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.225952] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.241833] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.246852] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.262739] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.267758] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.283644] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.288663] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.304563] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.309582] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.325469] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.330487] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.346381] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.351400] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.367285] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.372304] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.388187] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.393205] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   19.400681] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   19.406243] SAMPL CLK: 15360000 tuning: RX1
+[   19.416066]   0:1:2:3:4:5:6:7
+[   19.419043] 0:o o o o o o o o
+[   19.422094] 1:o o o o o o o o
+[   19.425149] 2:o o o o o o o o
+[   19.428213] 3:o o o o o o o o
+[   19.431276] 4:o o o o o o o o
+[   19.434339] 5:o o o o o o o o
+[   19.437397] 6:o o o o o o o o
+[   19.440458] 7:o o o o o o o o
+[   19.443514] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.450798] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.459210] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.459213] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.476176] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.484034] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.492440] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.492443] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.509388] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.517245] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.525656] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.525659] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.542585] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.550432] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.558849] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.558852] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.575804] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.583670] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.592077] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.592080] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.609021] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.616881] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.625323] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.625327] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.642268] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.650132] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.658483] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.658487] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.675436] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.683293] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.691705] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.691708] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.708652] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.716517] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.724926] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.724930] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.741871] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.749728] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.758121] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.758124] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.775076] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.782937] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.791324] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.791327] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.808262] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.816119] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.824509] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.824512] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.841436] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.849303] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.857693] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.857697] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.874501] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.882357] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.890748] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.890751] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.907678] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.915531] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.923919] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.923922] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.940720] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.948613] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.957023] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.957026] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   19.973969] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   19.981846] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   19.990265] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   19.990269] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.007222] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.015085] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.023493] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.023496] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.040503] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.048363] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.056767] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.056771] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.073715] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.081560] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.089971] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.089974] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.106919] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.114782] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.123189] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.123192] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.140150] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.148008] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.156417] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.156420] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.173338] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.181191] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.189489] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.189492] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.206446] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.214308] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.222723] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.222726] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.239682] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.247558] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.255973] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.255976] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.272925] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.280787] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.289197] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.289200] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.305994] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.313851] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.322272] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.322275] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.339221] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.347077] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.355478] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.355482] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.372423] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.380288] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.388701] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.388704] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.405622] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.413466] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.421878] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.421881] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.438824] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.446679] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.455125] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.455129] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.472075] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.479932] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.488338] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.488341] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.505287] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.513151] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.521452] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.521455] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.538415] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.546273] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.554686] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.554689] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.571641] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.579500] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.587905] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.587908] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.604853] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.612710] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.621100] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.621104] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.637898] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.645769] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.654189] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.654193] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.671136] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.678991] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.687398] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.687402] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.704361] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.712218] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.720623] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.720626] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.737569] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.745414] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.753829] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.753833] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.770830] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.778699] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.787110] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.787114] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.804063] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.811923] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.820317] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.820320] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.837241] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.845097] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.853398] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.853401] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.870330] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.878192] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.886594] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.886597] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.903532] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.911395] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.919784] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.919787] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.936741] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.944602] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.953017] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.953020] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   20.969814] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   20.977677] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   20.986089] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   20.986092] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.003039] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.010898] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.019304] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.019307] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.036255] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.044124] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.052532] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.052535] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.069455] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.077304] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.085715] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.085719] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.102667] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.110527] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.118939] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.118942] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.135897] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.143753] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.152160] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.152163] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.169085] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.176953] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.185297] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.185300] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.202260] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.210127] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.218545] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.218548] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.235495] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.243355] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.251763] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.251766] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.268719] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.276575] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.284979] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.284982] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.301778] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.309651] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.318064] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.318067] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.335008] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.342864] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.351271] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.351274] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.368230] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.376090] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.384500] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.384503] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.401420] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.409262] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.417676] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.417680] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.434622] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.442492] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.450898] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.450901] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.467855] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.475710] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.484116] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.484119] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.501067] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.508931] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.517234] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.517238] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.534194] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.542052] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.550467] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.550470] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.567425] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   21.575295] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   21.575298] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   21.580863] SAMPL CLK: 15360000 tuning: TX1
+[   21.590684]   0:1:2:3:4:5:6:7
+[   21.593656] 0:# # o o o o o o
+[   21.596717] 1:o o # o o o o o
+[   21.599772] 2:o o o # o o o o
+[   21.602827] 3:o o o o # o o o
+[   21.605878] 4:o o o o # # o o
+[   21.608938] 5:o o o o o # # o
+[   21.611995] 6:o o o o o o # #
+[   21.615049] 7:o o o o o o o #
+[   21.618105] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.625429] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   21.632783] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.641194] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.646212] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.662089] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.667108] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.682999] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.688018] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.703940] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.708957] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.724839] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.729858] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.745747] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.750766] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.766641] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.771660] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.787546] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.792565] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.808482] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.813499] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.829380] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.834399] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.850292] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.855311] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.871175] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.876194] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.892059] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.897077] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.912992] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.918009] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.933900] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.938919] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.954813] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.959832] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.975716] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   21.980735] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   21.996618] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.001637] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.017557] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.022576] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.038445] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.043464] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.059351] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.064370] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.080253] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.085272] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.101155] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.106174] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.122108] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.127128] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.143012] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.148031] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.163920] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.168939] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.184822] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.189841] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.205722] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.210740] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.226641] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.231660] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.247548] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.252567] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.268461] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.273479] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.289369] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.294387] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.310277] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.315296] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.331181] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.336200] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.352064] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.357082] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.372975] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.377994] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.393885] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.398904] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.414802] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.419821] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.435705] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.440724] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.456609] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.461628] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.477516] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.482535] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.498421] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.503440] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.519333] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.524352] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.540232] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.545251] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.561135] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.566154] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.582043] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.587061] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.602952] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.607971] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.623852] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.628871] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.644750] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.649769] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.665660] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.670678] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.686569] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.691588] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.707468] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.712487] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.728369] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.733387] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.749270] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.754289] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.770162] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.775181] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.791075] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.796094] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.811993] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.817012] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.832895] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.837914] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.853798] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.858817] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.874690] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.879708] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.895582] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.900600] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.916463] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.921482] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.937356] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.942375] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   22.958278] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   22.963296] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   22.970773] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   22.976336] SAMPL CLK: 15360000 tuning: RX2
+[   22.986159]   0:1:2:3:4:5:6:7
+[   22.989131] 0:o o o o o o o o
+[   22.992193] 1:o o o o o o o o
+[   22.995256] 2:o o o o o o o o
+[   22.998314] 3:o o o o o o o o
+[   23.001370] 4:o o o o o o o o
+[   23.004432] 5:o o o o o o o o
+[   23.007495] 6:o o o o o o o o
+[   23.010550] 7:o o o o o o o o
+[   23.013601] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.020879] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.029293] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.029296] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.046254] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.054123] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.062538] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.062541] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.079497] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.087362] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.095773] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.095776] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.112729] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.120576] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.128989] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.128993] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.145933] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.153789] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.162244] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.162247] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.179191] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.187054] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.195469] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.195472] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.212400] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.220268] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.228567] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.228570] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.245522] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.253384] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.261792] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.261796] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.278746] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.286601] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.295009] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.295013] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.311974] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.319829] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.328236] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.328239] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.345038] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.352915] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.361330] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.361334] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.378289] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.386142] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.394559] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.394562] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.411517] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.419373] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.427784] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.427787] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.444719] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.452569] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.460982] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.460985] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.477929] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.485799] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.494218] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.494221] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.511171] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.519026] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.527430] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.527433] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.544391] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.552253] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.560555] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.560559] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.577570] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.585429] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.593838] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.593841] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.610787] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.618654] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.627071] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.627074] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.644026] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.651882] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.660268] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.660271] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.677068] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.684929] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.693341] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.693345] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.710291] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.718152] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.726566] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.726569] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.743522] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.751391] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.759803] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.759806] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.776753] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.784605] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.793020] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.793023] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.809974] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.817833] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.826247] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.826250] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.843204] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.851064] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.859479] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.859483] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.876424] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.884287] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.892585] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.892588] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.909519] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.917375] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.925764] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.925767] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.942580] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.950440] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.958853] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.958857] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   23.975806] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   23.983666] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   23.992119] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   23.992123] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.008912] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.016786] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.025196] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.025199] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.042152] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.050007] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.058415] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.058418] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.075376] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.083236] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.091640] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.091643] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.108566] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.116414] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.124831] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.124834] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.141779] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.149645] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.158050] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.158053] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.175002] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.182864] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.191269] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.191273] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.208204] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.216062] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.224362] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.224365] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.241312] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.249170] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.257577] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.257580] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.274526] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.282396] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.290813] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.290816] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.307804] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.315660] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.324064] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.324068] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.340861] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.348722] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.357129] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.357132] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.374074] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.381931] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.390350] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.390353] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.407302] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.415167] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.423572] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.423575] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.440497] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.448349] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.456758] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.456761] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.473705] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.481562] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.489977] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.489980] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.506926] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.514785] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.523193] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.523196] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.540140] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.548005] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.556302] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.556305] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.573264] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.581119] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.589526] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.589529] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.606480] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.614345] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.622759] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.622762] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.639716] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.647573] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.655960] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.655963] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.672762] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.680633] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.689046] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.689049] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.706001] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.713863] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.722302] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.722305] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.739264] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.747124] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.755529] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.755532] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.772477] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.780321] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.788735] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.788738] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.805681] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.813553] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.821964] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.821968] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.838916] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.846772] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.855178] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.855181] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.872134] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.879987] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.888288] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.888291] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.905242] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.913102] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.921494] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.921497] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.938458] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.946325] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.954744] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.954747] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   24.971699] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   24.979558] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   24.987962] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   24.987966] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   25.004761] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   25.012621] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   25.021031] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   25.021035] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   25.037984] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   25.045838] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   25.054247] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   25.054250] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   25.071197] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   25.079066] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   25.087471] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   25.087475] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   25.104410] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   25.112254] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2917 => IN
+[   25.120670] adrv9001.c : function : adrv9002_intf_change_delay: Line: 2949 => OUT
+[   25.120673] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   25.137675] adrv9001.c : function : adrv9002_check_tx_test_pattern: Line: 2965 => IN
+[   25.145536] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   25.145538] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   25.151103] SAMPL CLK: 15360000 tuning: TX2
+[   25.160924]   0:1:2:3:4:5:6:7
+[   25.163902] 0:o # o o o o o o
+[   25.166957] 1:o o # o o o o o
+[   25.170007] 2:o o o # o o o o
+[   25.173068] 3:o o o o # o o o
+[   25.176123] 4:o o o o o # o o
+[   25.179179] 5:o o o o o o # #
+[   25.182234] 6:o o o o o o o #
+[   25.185284] 7:o o o o o o o o
+[   25.188346] adrv9001.c : function : adrv9002_intf_test_cfg: Line: 3008 => IN
+[   25.196668] adrv9001.c : function : adrv9002_intf_tuning: Line: 3144 => OUT
+[   25.205661] MESSAGE:ADRV9001_SPIREADBYTE:                   PRODUCT_ID_1: addr=0x0004, data=0xc0
+[   25.214571] MESSAGE:ADRV9001_SPIREADBYTE:              STREAM_BASE_BYTE0: addr=0x0117, data=0x38
+[   25.223465] MESSAGE:ADRV9001_SPIREADBYTE:              STREAM_BASE_BYTE1: addr=0x0118, data=0x40
+[   25.232750] adrv9002 spi1.0: adrv9002-phy Rev 12.0, Firmware 0.20.0.10,  Stream 0.7.9.0,  API version: 48.49.2 successfully initialized
+[   25.244916] adrv9001.c : function : adrv9002_post_init: Line: 4684 => OUT
+[   25.245929] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   25.252710] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   25.258489] cf_axi_adc 84a00000.axi-adrv9002-rx-lpc: ADI AIM (10.01.b) at 0x84A00000 mapped to 0x00000000fa686577, probed ADC ADRV9002 as MASTER
+[   25.277927] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   25.277930] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   25.283919] cf_axi_tdd 84a0c800.axi-adrv9002-core-tdd1-lpc: Analog Devices CF_AXI_TDD MASTER (1.00.a)
+[   25.299001] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   25.299004] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   25.304966] cf_axi_tdd 84a0cc00.axi-adrv9002-core-tdd2-lpc: Analog Devices CF_AXI_TDD MASTER (1.00.a)
+[   25.320080] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   25.320082] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   25.342401] cf_axi_dds 84a0a000.axi-adrv9002-tx-lpc: Analog Devices CF_AXI_DDS_DDS MASTER (9.01.b) at 0x84A0A000 mapped to 0x000000002396f0b5, probed DDS ADRV9002
+[   25.362810] adrv9001.c : adrv9002_bb_recalc_rate : IN : 286
+[   25.362812] adrv9001.c : adrv9002_bb_recalc_rate : OUT : 288
+[   25.386388] cf_axi_dds 84a0c000.axi-adrv9002-tx2-lpc: Analog Devices CF_AXI_DDS_DDS MASTER (9.01.b) at 0x84A0C000 mapped to 0x00000000889d26ff, probed DDS ADRV9002
+[   25.409237] of_cfs_init
+[   25.411714] of_cfs_init: OK
+[   25.414649] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[   25.552876] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[   25.559411] clk: Not disabling unused clocks
+[   25.563887] ALSA device list:
+[   25.566847]   No soundcards found.
+[   25.570543] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[   25.579155] cfg80211: failed to load regulatory.db
+[   25.584837] Freeing unused kernel memory: 2624K
+[   25.602153] Run /init as init process
+INIT: version 2.97 booting
+Starting udev
+[   25.734774] udevd[141]: starting version 3.2.9
+[   25.744965] udevd[142]: starting eudev-3.2.9
+Starting tcf-agent: OK
+
+PetaLinux 2021.1 xilinx-uetc ttyPS0
+
+
+root@xilinx-uetc:~#
+root@xilinx-uetc:~#
+root@xilinx-uetc:~#
+root@xilinx-uetc:~# passwd
+New password:
+Retype new password:
+passwd: password updated successfully
+root@xilinx-uetc:~#
+root@xilinx-uetc:~#
+root@xilinx-uetc:~#
+root@xilinx-uetc:~# cd /sys/bus/iio/devices/
+root@xilinx-uetc:/sys/bus/iio/devices# ls
+iio:device0  iio:device1  iio:device2  iio:device3  iio:device4  iio:device5  iio:device6  iio:device7  iio_sysfs_trigger
+root@xilinx-uetc:/sys/bus/iio/devices# cd iio:device1
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1# ls
+dev                                              in_voltage1_bbdc_rejection_en                    out_voltage0_atten_control_mode_available
+frequency_hopping_hop1_signal_trigger            in_voltage1_bbdc_rejection_tracking_en           out_voltage0_close_loop_gain_tracking_en
+frequency_hopping_hop1_table_a                   in_voltage1_decimated_power                      out_voltage0_en
+frequency_hopping_hop1_table_b                   in_voltage1_digital_gain_control_mode            out_voltage0_ensm_mode
+frequency_hopping_hop1_table_select              in_voltage1_digital_gain_control_mode_available  out_voltage0_ensm_mode_available
+frequency_hopping_hop2_signal_trigger            in_voltage1_dynamic_adc_switch_en                out_voltage0_hardwaregain
+frequency_hopping_hop2_table_a                   in_voltage1_en                                   out_voltage0_lo_leakage_tracking_en
+frequency_hopping_hop2_table_b                   in_voltage1_ensm_mode                            out_voltage0_loopback_delay_tracking_en
+frequency_hopping_hop2_table_select              in_voltage1_ensm_mode_available                  out_voltage0_nco_frequency
+frequency_hopping_hop_table_select_available     in_voltage1_gain_control_mode                    out_voltage0_pa_correction_tracking_en
+in_temp0_input                                   in_voltage1_gain_control_mode_available          out_voltage0_port_en_mode
+in_voltage0_agc_tracking_en                      in_voltage1_hardwaregain                         out_voltage0_port_en_mode_available
+in_voltage0_bbdc_loop_gain_raw                   in_voltage1_hd_tracking_en                       out_voltage0_quadrature_tracking_en
+in_voltage0_bbdc_rejection_en                    in_voltage1_interface_gain                       out_voltage0_rf_bandwidth
+in_voltage0_bbdc_rejection_tracking_en           in_voltage1_interface_gain_available             out_voltage0_sampling_frequency
+in_voltage0_decimated_power                      in_voltage1_nco_frequency                        out_voltage1_atten_control_mode
+in_voltage0_digital_gain_control_mode            in_voltage1_orx_bbdc_rejection_en                out_voltage1_atten_control_mode_available
+in_voltage0_digital_gain_control_mode_available  in_voltage1_orx_en                               out_voltage1_close_loop_gain_tracking_en
+in_voltage0_dynamic_adc_switch_en                in_voltage1_orx_hardwaregain                     out_voltage1_en
+in_voltage0_en                                   in_voltage1_orx_quadrature_w_poly_tracking_en    out_voltage1_ensm_mode
+in_voltage0_ensm_mode                            in_voltage1_port_en_mode                         out_voltage1_ensm_mode_available
+in_voltage0_ensm_mode_available                  in_voltage1_port_en_mode_available               out_voltage1_hardwaregain
+in_voltage0_gain_control_mode                    in_voltage1_quadrature_fic_tracking_en           out_voltage1_lo_leakage_tracking_en
+in_voltage0_gain_control_mode_available          in_voltage1_quadrature_w_poly_tracking_en        out_voltage1_loopback_delay_tracking_en
+in_voltage0_hardwaregain                         in_voltage1_rf_bandwidth                         out_voltage1_nco_frequency
+in_voltage0_hd_tracking_en                       in_voltage1_rfdc_tracking_en                     out_voltage1_pa_correction_tracking_en
+in_voltage0_interface_gain                       in_voltage1_rssi                                 out_voltage1_port_en_mode
+in_voltage0_interface_gain_available             in_voltage1_rssi_tracking_en                     out_voltage1_port_en_mode_available
+in_voltage0_nco_frequency                        in_voltage1_sampling_frequency                   out_voltage1_quadrature_tracking_en
+in_voltage0_orx_bbdc_rejection_en                in_voltage2_en                                   out_voltage1_rf_bandwidth
+in_voltage0_orx_en                               in_voltage2_input                                out_voltage1_sampling_frequency
+in_voltage0_orx_hardwaregain                     in_voltage3_en                                   out_voltage2_en
+in_voltage0_orx_quadrature_w_poly_tracking_en    in_voltage3_input                                out_voltage2_input
+in_voltage0_port_en_mode                         in_voltage4_en                                   out_voltage3_en
+in_voltage0_port_en_mode_available               in_voltage4_input                                out_voltage3_input
+in_voltage0_quadrature_fic_tracking_en           in_voltage5_en                                   out_voltage4_en
+in_voltage0_quadrature_w_poly_tracking_en        in_voltage5_input                                out_voltage4_input
+in_voltage0_rf_bandwidth                         name                                             out_voltage5_en
+in_voltage0_rfdc_tracking_en                     of_node                                          out_voltage5_input
+in_voltage0_rssi                                 out_altvoltage0_RX1_LO_frequency                 power
+in_voltage0_rssi_tracking_en                     out_altvoltage1_RX2_LO_frequency                 profile_config
+in_voltage0_sampling_frequency                   out_altvoltage2_TX1_LO_frequency                 stream_config
+in_voltage1_agc_tracking_en                      out_altvoltage3_TX2_LO_frequency                 subsystem
+in_voltage1_bbdc_loop_gain_raw                   out_voltage0_atten_control_mode                  uevent
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1# cat in_voltage0_ensm_mode
+rf_enabled
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1# echo calibrated > in_voltage0_ensm_mode
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1#
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1# cat /tmp/test.bin > stream_config
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1#
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1# cat /tmp/test.json > profile_config
+[  156.367839] adrv9002 spi1.0: TX1 cannot be enabled while RX1 is disabled
+[  156.376007] adrv9002 spi1.0: TX1 cannot be enabled while RX1 is disabled
+cat: write error: Invalid argument
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1#

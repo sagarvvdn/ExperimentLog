@@ -1,0 +1,11 @@
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1#
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1# cat /tmp/test.bin > stream_config
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1# cat /tmp/test.json > profile_config
+[  608.215148] adrv9002 spi1.0: [ERROR]: Error number  1 (0x00000001), Recovery action -2.In file drivers/iio/adc/navassa/devices/adrv9001/public/src/adi_adrv9001_powermanagement.c, in function adi_adrv9001_powermanagement_Configure_Validate, in line  55, variable name readPattern.Error message ARM memory is not accessible. Check whether device clock and/or power is connected to the ADRV9001 board.
+[  608.250161] adrv9002 spi1.0: [ERROR]: Error number  1 (0x00000001), Recovery action -2.In file drivers/iio/adc/navassa/devices/adrv9001/public/src/adi_adrv9001_powermanagement.c, in function adi_adrv9001_powermanagement_Configure, in line  90, variable name NULL.Error message ARM memory is not accessible. Check whether device clock and/or power is connected to the ADRV9001 board.
+[  608.283779] adrv9002 spi1.0: adrv9002_power_mgmt_config, 2644: failed with "ARM memory is not accessible. Check whether device clock and/or power is connected to the ADRV9001 board" (1)
+[  611.361723] adrv9002 spi1.0: [ERROR]: Error number  1 (0x00000001), Recovery action -2.In file drivers/iio/adc/navassa/devices/adrv9001/public/src/adi_adrv9001_powermanagement.c, in function adi_adrv9001_powermanagement_Configure_Validate, in line  55, variable name readPattern.Error message ARM memory is not accessible. Check whether device clock and/or power is connected to the ADRV9001 board.
+[  611.396727] adrv9002 spi1.0: [ERROR]: Error number  1 (0x00000001), Recovery action -2.In file drivers/iio/adc/navassa/devices/adrv9001/public/src/adi_adrv9001_powermanagement.c, in function adi_adrv9001_powermanagement_Configure, in line  90, variable name NULL.Error message ARM memory is not accessible. Check whether device clock and/or power is connected to the ADRV9001 board.
+[  611.430341] adrv9002 spi1.0: adrv9002_power_mgmt_config, 2644: failed with "ARM memory is not accessible. Check whether device clock and/or power is connected to the ADRV9001 board" (1)
+cat: write error: Invalid argument
+root@xilinx-uetc:/sys/bus/iio/devices/iio:device1#
